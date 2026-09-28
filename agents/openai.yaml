@@ -1,0 +1,7 @@
+interface:
+  display_name: "Term-Inator"
+  short_description: "Precise software explanations without jargon or filler"
+  icon_large: "./assets/terminator.png"
+  default_prompt: "Use $term-inator to explain this software task with precise names, concrete actions, and useful context. Start with the substance."
+policy:
+  allow_implicit_invocation: true
