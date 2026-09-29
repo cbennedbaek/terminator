@@ -1,7 +1,7 @@
 interface:
   display_name: "Term-Inator"
-  short_description: "Precise software explanations without jargon or filler"
+  short_description: "Correct domain terms and precise wording across topics"
   icon_large: "./assets/terminator.png"
-  default_prompt: "Use $term-inator to explain this software task with precise names, concrete actions, and useful context. Start with the substance."
+  default_prompt: "Use $term-inator to answer with correct domain terms while preserving meaning and the requested format."
 policy:
   allow_implicit_invocation: true

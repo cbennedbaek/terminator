@@ -1,0 +1,136 @@
+{
+  "skill_version": "1.1.0",
+  "skill_sha256": "0bcd2e1c2846554271cc36c199bb0a231d0d2d0b737d5820a4008ef4038c0089",
+  "hash_normalization": "CRLF normalized to LF before SHA-256",
+  "method": "One batch generated with the skill and prompts, without grading criteria. A separate reviewer graded responses against criteria without the skill or earlier results.",
+  "model_settings": "Model and reasoning settings inherited from the harness. Exact backend model identifier and sampling settings not captured.",
+  "results": [
+    {
+      "id": "T01",
+      "response": "The change reduced median API response latency from 180 ms to 120 ms, while throughput remained at 500 completed requests per second.",
+      "pass": true,
+      "reason": "One sentence preserves median latency values and unchanged throughput with correct units."
+    },
+    {
+      "id": "T02",
+      "response": "Authorization failure when opening the admin report",
+      "pass": true,
+      "reason": "Only the title is returned, correctly identifying authorization failure."
+    },
+    {
+      "id": "T03",
+      "response": "Does ACL refer to an access control list, an anterior cruciate ligament, or something else?",
+      "pass": true,
+      "reason": "Concise clarification preserves acronym ambiguity and offers only two possible meanings."
+    },
+    {
+      "id": "T04",
+      "response": "The router access control list (ACL) denies traffic from 192.0.2.0/24 to TCP port 22.",
+      "pass": true,
+      "reason": "One sentence expands access control list and preserves router, source range, denial, and destination port."
+    },
+    {
+      "id": "T05",
+      "response": "A transaction is a group of database changes treated as one unit. Atomic means all those changes take effect or none do. For a money transfer, this prevents money leaving one account without reaching the other.",
+      "pass": true,
+      "reason": "Three short sentences define transaction and atomicity, then explain prevention of a partially applied transfer."
+    },
+    {
+      "id": "T06",
+      "response": "Base64 is reversible encoding, not encryption, so Base64 encoding alone does not secure your API token.",
+      "pass": true,
+      "reason": "One direct sentence corrects encoding versus encryption without claiming the token is secure."
+    },
+    {
+      "id": "T07",
+      "response": "Response times rose after deployment, but the cause is unconfirmed. The team suspects a memory leak; no memory metrics, traces, or heap profiles were collected to assess that hypothesis.",
+      "pass": true,
+      "reason": "Two sentences preserve temporal observation, unconfirmed cause, suspected leak, and missing diagnostic evidence."
+    },
+    {
+      "id": "T08",
+      "response": "We're sorry some checkout attempts failed from 14:00 to 14:12 UTC. Checkout now works, and affected customers can try again. We haven't yet verified whether anyone was charged.",
+      "pass": true,
+      "reason": "The 28-word notice uses complete, warm sentences and preserves the incident interval, recovery, retry option, and charge uncertainty."
+    },
+    {
+      "id": "T09",
+      "response": "Retry at most twice, only if the operation is idempotent and the server returns 503; never retry after the cancellation token is signaled.",
+      "pass": true,
+      "reason": "The 23-word rule preserves two retries, both necessary conditions, and cancellation overriding retry permission."
+    },
+    {
+      "id": "T10",
+      "response": "{\"status\":\"timeout\",\"detail\":\"The caller stopped waiting after 5 seconds; whether the server completed the operation is unknown.\"}",
+      "pass": true,
+      "reason": "Valid JSON has exactly the ordered keys and required status; its single detail sentence preserves timeout and unknown server completion."
+    },
+    {
+      "id": "T11",
+      "response": "Sweat the onions gently in butter until soft and translucent, without letting them brown.",
+      "pass": true,
+      "reason": "One recipe sentence correctly uses sweat while retaining butter, gentle cooking, softness, translucence, and no browning."
+    },
+    {
+      "id": "T12",
+      "response": "I think the narrator is unreliable: the fictional first-person speaker contradicts their earlier account, though the text does not establish whether this is deliberate deception.",
+      "pass": true,
+      "reason": "One sentence substitutes narrator and preserves first-person tentativeness, contradiction, and uncertainty about deception."
+    },
+    {
+      "id": "T13",
+      "response": "Optimistic concurrency control rejects an update when the stored version no longer matches the version read by the client.",
+      "pass": true,
+      "reason": "Returns the accurate release note verbatim with its final period and no additions."
+    },
+    {
+      "id": "T14",
+      "response": "In this observational sample, longer sleep duration was associated with lower reported stress; the analysis does not establish causation.",
+      "pass": true,
+      "reason": "Returns the accurate research caption verbatim with its punctuation and no additions."
+    },
+    {
+      "id": "T15",
+      "response": "In what context are you using ICP—for example, sales, medicine, or computing?",
+      "pass": true,
+      "reason": "Asks a concise domain clarification without assuming an expansion or supplying a glossary."
+    },
+    {
+      "id": "T16",
+      "response": "An ICP, or ideal customer profile, describes the type of company best suited to your payroll software. For your business, it would identify which small companies are the best fit based on characteristics such as employee count and payroll needs.",
+      "pass": true,
+      "reason": "Two explanatory sentences expand ideal customer profile in context and describe company characteristics without inventing customer facts."
+    },
+    {
+      "id": "T17",
+      "response": "EBITDA stands for earnings before interest, taxes, depreciation, and amortization. It is a financial performance measure, not cash flow.",
+      "pass": true,
+      "reason": "Two sentences retain the full expansion, financial performance role, and distinction from cash flow using only supplied facts."
+    },
+    {
+      "id": "T18",
+      "response": "Customer retention held steady, but plan downgrades caused revenue contraction among existing customers.",
+      "pass": true,
+      "reason": "One sentence describes retained customers, plan downgrades, and revenue contraction without amounts, definitions, or advice."
+    },
+    {
+      "id": "T19",
+      "response": "An account can have multiple members.",
+      "pass": true,
+      "reason": "Returns the supplied sentence verbatim and respects intentional domain terminology."
+    },
+    {
+      "id": "T20",
+      "response": "Access was denied because the account does not have the permission needed.",
+      "pass": true,
+      "reason": "One plain-language sentence preserves denied access from missing permission without authorization or role jargon."
+    },
+    {
+      "id": "T21",
+      "response": "The application uses event sourcing.",
+      "pass": true,
+      "reason": "One short sentence correctly names event sourcing without definitions, recommendations, or CQRS claims."
+    }
+  ],
+  "cases_sha256": "06ad963ee77831be82ba3467bdec8a26da81107e353a1a79df6711532d78a177"
+}

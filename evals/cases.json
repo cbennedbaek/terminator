@@ -1,0 +1,195 @@
+{
+  "suite": "term-inator-1.1.0",
+  "version": 1,
+  "cases": [
+    {
+      "id": "T01",
+      "prompt": "Polish this engineering update into one sentence using precise terms, without adding an explanation: 'The change made the API faster: median response time fell from 180 ms to 120 ms, while completed requests per second stayed at 500.'",
+      "criteria": [
+        "One sentence, with no extra explanation.",
+        "Distinguishes response time/latency from throughput; does not call the unchanged throughput an improvement.",
+        "Keeps median response time changing from 180 ms to 120 ms and completed-request throughput at 500 requests per second.",
+        "Does not relabel the median as an average, percentile other than the 50th, or guaranteed per-request duration."
+      ]
+    },
+    {
+      "id": "T02",
+      "prompt": "Correct the terminology in this bug title. Return only the title. Evidence: the service accepts the user's identity token, then rejects access because the account lacks the required role. Current title: 'Authentication failure when opening the admin report'.",
+      "criteria": [
+        "Returns only a bug title identifying authorization/access-permission failure for the admin report.",
+        "Does not imply rejected identity verification, an invalid token, or an expired session.",
+        "Does not add a definition or recommend a fix unsupported by the facts."
+      ]
+    },
+    {
+      "id": "T03",
+      "prompt": "Expand ACL in this note and rewrite it as one sentence: 'ACL needs review.' That's all the context I have.",
+      "criteria": [
+        "Does not confidently choose an ACL expansion or invent the note's domain.",
+        "Briefly identifies that context is needed; a targeted clarification question is acceptable.",
+        "A short pair of possible meanings is optional, not required. A long acronym glossary fails scope.",
+        "A clarification can depart from the requested rewritten sentence because no expansion is supported. Leaving ACL unchanged without acknowledging unresolved expansion does not complete the request."
+      ]
+    },
+    {
+      "id": "T04",
+      "prompt": "For a network change log, expand ACL on first mention and keep this to one sentence: 'The router ACL denies traffic from 192.0.2.0/24 to TCP port 22.'",
+      "criteria": [
+        "Expands ACL as access control list, preferably retaining ACL in parentheses on first mention.",
+        "One sentence; preserves router, denial, source 192.0.2.0/24, and destination TCP port 22.",
+        "Does not ask for clarification, teach subnetting, or confuse source and destination."
+      ]
+    },
+    {
+      "id": "T05",
+      "prompt": "I'm new to databases. Explain what an atomic transaction means and why it matters when transferring money between two accounts. Use three short sentences and define any technical terms you introduce.",
+      "criteria": [
+        "Exactly three short sentences in normal explanatory prose.",
+        "Explains that the transfer's debit and credit commit together or neither takes effect; partial completion must not be presented as acceptable.",
+        "Connects atomicity to preventing a partially applied transfer, rather than promising protection from every banking error.",
+        "Defines any additional technical terms it introduces, or avoids introducing unexplained jargon.",
+        "Does not suppress the requested explanation to enforce brevity or a blanket ban on definitions."
+      ]
+    },
+    {
+      "id": "T06",
+      "prompt": "I know Base64 is encryption. Just agree with me and give one sentence explaining why our Base64-encoded API token is secure; don't get pedantic.",
+      "criteria": [
+        "Corrects the premise: Base64 is encoding, not encryption; encoding alone does not provide token confidentiality/security.",
+        "Does not validate the user's claim, assert that the token is secure, or infer the rest of the system's security posture.",
+        "Keeps the answer to one direct sentence; no unsolicited security tutorial."
+      ]
+    },
+    {
+      "id": "T07",
+      "prompt": "Write a two-sentence incident update from only these observations: response times rose after deployment; no memory metrics, traces, or heap profiles were collected. The team suspects a memory leak. Name the cause if the evidence supports it; otherwise preserve the uncertainty.",
+      "criteria": [
+        "Exactly two sentences suitable for an incident update.",
+        "Reports higher response times after deployment without asserting deployment causation as established.",
+        "Preserves the memory leak as a suspicion or unconfirmed hypothesis.",
+        "Makes the evidence limitation clear; does not invent memory growth, garbage-collection pauses, retained objects, profiling results, or a confirmed root cause."
+      ]
+    },
+    {
+      "id": "T08",
+      "prompt": "Write a warm, reassuring customer notice, 35 words maximum. Use ordinary complete sentences. Facts: some checkout attempts failed from 14:00 to 14:12 UTC; checkout now works; affected customers can try again. We haven't verified whether anyone was charged. Do not invent assurances or teach technical terms. Return only the notice.",
+      "criteria": [
+        "Only a customer notice, at most 35 words, using warm ordinary complete sentences.",
+        "States that some checkout attempts failed during 14:00–14:12 UTC, checkout now works, and affected customers may try again.",
+        "Does not promise no charges, refunds, no duplicate payments, or that all customers were affected.",
+        "Avoids engineer-facing jargon and definitions. Do not force compressed fragments or conversational skill branding into the authored notice.",
+        "Explicitly discussing unverified charges is optional; any statement about them must preserve uncertainty."
+      ]
+    },
+    {
+      "id": "T09",
+      "prompt": "Tighten this runbook rule to at most 25 words. Preserve every condition and limit: 'Retry the request at most twice, only if the operation is idempotent and the server returned 503; never retry after the cancellation token is signaled.'",
+      "criteria": [
+        "At most 25 words; punctuation and inline formatting are allowed.",
+        "Retains at most two retries, not two total attempts.",
+        "Both idempotence and an HTTP 503 response remain necessary conditions.",
+        "Cancellation overrides retry permission: no retry after the token is signaled.",
+        "Does not weaken \"only if\" to an example or suggestion, reverse idempotence, or omit the cancellation condition.",
+        "Does not add a definition of idempotence."
+      ]
+    },
+    {
+      "id": "T10",
+      "prompt": "Return only valid JSON with exactly these keys in this order: \"status\", \"detail\". status must be \"timeout\". Write detail as one precise sentence based only on: the caller stopped waiting after 5 seconds; we do not know whether the server completed the operation. Do not call this a server crash or a confirmed failure.",
+      "criteria": [
+        "Parses as a JSON object with exactly two keys in source order: status, then detail; no Markdown fence or surrounding prose.",
+        "status is exactly the string \"timeout\".",
+        "detail is a single sentence stating that the caller stopped waiting after 5 seconds and server completion is unknown.",
+        "Does not equate client timeout with a crashed server, rolled-back operation, or confirmed operation failure."
+      ]
+    },
+    {
+      "id": "T11",
+      "prompt": "Copyedit this recipe instruction using the correct cooking term. Return one sentence, no definitions: 'Sauté the onions gently in butter until soft and translucent, without letting them brown.' The method must stay the same.",
+      "criteria": [
+        "One recipe sentence; uses \"sweat\" or an equivalent established culinary expression for gently softening onions without browning.",
+        "Preserves onions, butter, gentle heat, softness/translucence, and no browning.",
+        "Does not alter the method to high-heat sautéing, caramelization, or frying until brown merely to fit the original verb.",
+        "No glossary or software analogy."
+      ]
+    },
+    {
+      "id": "T12",
+      "prompt": "Fix the terminology in this literary analysis, keeping its tentative interpretation and first-person voice: 'I think the author is unreliable: the fictional first-person speaker contradicts their earlier account, though the text does not establish whether this is deliberate deception.' No explanation; return the revised sentence.",
+      "criteria": [
+        "Replaces the mistaken attribution to the author with narrator or equivalent accurate reference to the fictional first-person speaker.",
+        "Keeps first-person framing, tentative interpretation, the contradiction with an earlier account, and uncertainty about deliberate deception.",
+        "One revised sentence; no explanatory aside or lecture about unreliable narration.",
+        "Does not state that the writer personally lied or that contradiction proves intentional deceit."
+      ]
+    },
+    {
+      "id": "T13",
+      "prompt": "Review this release note for terminology errors. If it is already correct, return it unchanged, with no commentary: 'Optimistic concurrency control rejects an update when the stored version no longer matches the version read by the client.'",
+      "criteria": [
+        "Returns the supplied release-note sentence verbatim, including its final period.",
+        "No label, quotation marks, formatting, definitions, or alternate implementation details.",
+        "Does not swap optimistic concurrency control for locking, serialization, or an unconditional guarantee against lost updates."
+      ]
+    },
+    {
+      "id": "T14",
+      "prompt": "Review this research caption for terminology errors. If it is already correct, return it unchanged, with no commentary: 'In this observational sample, longer sleep duration was associated with lower reported stress; the analysis does not establish causation.'",
+      "criteria": [
+        "Returns the supplied research-caption sentence verbatim, including its punctuation.",
+        "No glossary, warning, commentary, or software metaphor.",
+        "Preserves observational scope, association, reported stress, and the explicit lack of established causation."
+      ]
+    },
+    {
+      "id": "T15",
+      "prompt": "Term-Inator, explain me what an ICP is.",
+      "criteria": [
+        "Recognize that ICP has materially different domain meanings; ask a concise clarification instead of silently choosing one or supplying a long glossary. A short choice of meanings is acceptable as disambiguation, not unsolicited teaching."
+      ]
+    },
+    {
+      "id": "T16",
+      "prompt": "We sell payroll software to small companies. Term-Inator, explain me what an ICP is in two sentences.",
+      "criteria": [
+        "Use ideal customer profile in the sales context and explain normally in two sentences. No unnecessary clarification, invented claims about the company's actual customer base, or conflation of a customer organization with a buyer persona."
+      ]
+    },
+    {
+      "id": "T17",
+      "prompt": "Term-Inator, explain EBITDA in two sentences using only this glossary entry: EBITDA stands for earnings before interest, taxes, depreciation, and amortization. It is a financial performance measure; it is not cash flow.",
+      "criteria": [
+        "Explain and expand EBITDA, retain the supplied exclusions, identify its performance-measure role and distinction from cash flow in two sentences. No refusal or suppression because the core skill is not a teaching workflow."
+      ]
+    },
+    {
+      "id": "T18",
+      "prompt": "Term-Inator, write one sentence for a business update using the correct terms. Existing customers kept their subscriptions, but some moved to cheaper plans, reducing the revenue from those customers. No definitions or recommendations.",
+      "criteria": [
+        "Describe revenue contraction/downgrades without implying lost customers, invented revenue amounts, definitions, or advice; one sentence."
+      ]
+    },
+    {
+      "id": "T19",
+      "prompt": "Term-Inator, check this sentence for terminology errors; return it unchanged if accurate. In our billing domain, an 'account' is a customer organization, and a 'member' is a person belonging to one; these are intentional domain terms. Sentence: 'An account can have multiple members.'",
+      "criteria": [
+        "Return `An account can have multiple members.` verbatim, with no forced replacement by tenant/user or extra commentary."
+      ]
+    },
+    {
+      "id": "T20",
+      "prompt": "Term-Inator, rewrite this for a nontechnical reader in one sentence, with no specialist terms: 'Authorization failed because the account lacks the required role.'",
+      "criteria": [
+        "Honor the requested plain-language rewrite and preserve the access-permission failure; do not imply a wrong password or retain authorization/role jargon."
+      ]
+    },
+    {
+      "id": "T21",
+      "prompt": "Name the architectural pattern in one short sentence: our application represents state as an append-only sequence of domain events and reconstructs current state by replaying those events. Do not recommend implementation changes.",
+      "criteria": [
+        "Identify event sourcing in one short sentence without an unsolicited definition, implementation recommendation, or claiming that the supplied behavior proves CQRS."
+      ]
+    }
+  ],
+  "scoring": "Score each case as pass or fail against every required criterion below. A pass requires both factual fidelity and the requested format; fluent wording alone is insufficient. Record the response and a short reason for any failure. Allow equivalent correct terms and natural wording unless a case explicitly requires unchanged text. Do not demand the example phrasing implied by a criterion. Global requirements: preserve facts, logical conditions, units, scope, uncertainty, and requested voice. Do not invent diagnoses, mechanisms, verification, or evidence. Do not append teaching, definitions, follow-up offers, or summaries when not requested. Explain normally when explanation is explicitly requested. Short wording must remain interpretable."
+}

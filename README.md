@@ -4,47 +4,41 @@
 
 <h1 align="center">Term-Inator</h1>
 
-<p align="center"><strong>Precise technical language for Codex.</strong></p>
+<p align="center"><strong>Correct terms. Precise communication.</strong></p>
 
-Term-Inator makes software explanations specific: **name the thing, describe
-what happens, and keep the context that makes it understandable.**
+Term-Inator is a communication skill for Codex. It uses correct domain terms
+across topics while preserving relationships, conditions, and uncertainty.
+**Name the thing, describe what happens, and keep the distinctions that matter.**
 
-## Before / after
+Unfamiliar terms give you the option to ask for clarification. Term-Inator does
+not add definitions or lessons unless requested.
 
-**Before**
+## Examples
 
-> I'll clean up the email logic in `OrderService`.
+**Concurrency:** Two tasks each hold a lock the other needs; neither releases it.
 
-**After**
+> The tasks are deadlocked.
 
-> I'll inject `IEmailSender` into `OrderService` through its constructor, so
-> unit tests can use a fake sender without sending real confirmation emails.
+**Project planning:** A team has 40 hours available this week and 55 hours assigned.
 
-**Before**
+> The team is overallocated by 15 hours this week.
 
-> I'll improve the error handling.
+**Quantitative reporting:** Conversion rate rises from 8% to 10%.
 
-**After**
+> Conversion rate rose by 2 percentage points, a 25% relative increase.
 
-> I'll map a `null` result from `GetOrderAsync` to `404 Not Found` in the order
-> endpoint, instead of returning `200 OK` with a null body.
+## What to expect
 
-These illustrate chosen changes, not patterns to apply automatically. The same
-approach applies to UI work, reviews, refactoring, and debugging.
+Answers lead with the substance, use valid domain and project terminology,
+and keep uncertainty visible. Term-Inator respects your requested language,
+tone, length, and format. It asks for context when ambiguity affects the answer,
+leaves already-correct text alone, and omits empty agreement.
 
-## What it avoids
+## Always-on setup for Codex
 
-No invented details, jargon for its own sake, automatic acronym expansion,
-unnecessary abstractions, or tool-by-tool narration. KISS, DRY, SOLID, and DDD
-support an explanation when relevant; they do not replace it. Code-only stays
-code-only. Already precise text stays short.
+Complete both steps to read and apply Term-Inator at the start of every session.
 
-Replies start with the answer, finding, correction, or action, not "You're
-right," "Good catch," or the same filler reworded. Mistakes are acknowledged
-specifically and corrected; factual confirmation and evidence-based disagreement
-remain intact.
-
-## Install for Codex
+### 1. Install the skill
 
 From the repository root (the folder containing `SKILL.md`), choose your shell.
 These commands install the skill for your user. They stop if that destination
@@ -75,19 +69,12 @@ home from native Windows):
 )
 ```
 
-For project-only use, copy those same files and folders into
-`.agents/skills/term-inator/` at your repository root instead. Choose one
-location to avoid duplicate entries. These are the documented
+For project-only use, copy the same files and folders into
+`.agents/skills/term-inator/` at your repository root instead. Choose one location.
+These are the documented
 [Codex skill locations](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
-The installed folder is named `term-inator`, even though the repository is
-named `terminator`. Codex detects skill changes automatically; restart it if
-the skill does not appear.
 
-## Make it the default
-
-The bundled `agents/openai.yaml` permits
-[automatic skill selection](https://learn.chatgpt.com/docs/build-skills#optional-metadata);
-it does not force the skill to load on every turn.
+### 2. Load it every session
 
 Add this once to `~/.codex/AGENTS.md` using Codex's
 [persistent instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md):
@@ -95,30 +82,75 @@ Add this once to `~/.codex/AGENTS.md` using Codex's
 ```markdown
 ## Communication
 
-Use the installed term-inator skill by default for software explanations.
+At the start of every session, read the installed term-inator SKILL.md and apply
+it to all assistant communication across topics. Use correct domain terms without
+unsolicited definitions. Preserve relationships, conditions, and uncertainty,
+and respect requested formats and authored voice. Honor explicit requests to
+disable the skill for the rest of the session.
 ```
 
-Append to the existing file; do not replace other instructions. Use
+Replace older Term-Inator guidance if present; keep unrelated instructions. Use
 `$CODEX_HOME/AGENTS.md` for a custom Codex home, or your repository's `AGENTS.md`
 for project-only defaults. An `AGENTS.override.md` at the same scope takes
 precedence; add the preference there instead when that override is intentional.
-Start a new Codex session. Project instructions and explicit requests can still
-override the default. No repeated session prompt is needed for this setup.
+Start a new Codex session and ask it to confirm which communication instructions
+it loaded. Term-Inator should be active without a per-message invocation.
+Project instructions and explicit requests can still override the default.
 
-For an individual task, explicit invocation also works:
+## Everyday use
+
+With the setup above, ask normally:
 
 ```text
-$term-inator Review this refactor.
+Review this incident summary.
+Summarize these survey results.
+Explain bottlenecks.
 ```
 
-## With Ponytail and Caveman
+Ask for explanations when you want them; include domain context for ambiguous
+acronyms. For occasional use without the persistent instruction, invoke the
+installed skill explicitly with `$term-inator`.
 
-Use [Ponytail](https://github.com/DietrichGebert/ponytail) for implementation
-simplicity and Term-Inator for precise explanations. With
-[Caveman](https://github.com/juliusbrussee/caveman), trim filler without dropping
-names, material context, or uncertainty. Explicit preferences for terse wording
-still apply; Term-Inator does not require full sentences or extra explanation.
-Neither companion is required.
+## Token-Evaporator-Inator Architecture
+
+**Evaporate waste. Preserve meaning.**
+
+This optional workflow combines four complementary responsibilities:
+
+| Component | Responsibility |
+| --- | --- |
+| [RTK](https://github.com/rtk-ai/rtk) | Filter supported command output before the agent reads it. |
+| [Ponytail](https://github.com/DietrichGebert/ponytail) | Keep implementation simple while preserving required behavior. |
+| [Caveman Full](https://github.com/juliusbrussee/caveman) | Shorten phrasing while retaining useful content. |
+| Term-Inator | Use correct domain terms and preserve relationships, conditions, and uncertainty. |
+
+Keep original command output accessible when a filtered summary is insufficient,
+and verify that implementation changes preserve requirements.
+
+Term-Inator also works alone. To use the combined workflow, install the companions
+through their linked documentation, then add this alongside the Term-Inator
+instruction in your `AGENTS.md`:
+
+```markdown
+At the start of each session, read and apply the installed Ponytail and Caveman
+skills. Use Ponytail for implementation decisions and Caveman Full for concise
+replies. Use RTK for supported shell commands. Retain Term-Inator's correct terms,
+relationships, conditions, and uncertainty. Honor explicit mode changes.
+```
+
+## Evaluation
+
+**21 of 21 cases passed** the recorded model-assisted review, covering terminology,
+ambiguity, requested explanations, uncertainty, and output formats. A separate
+reviewer graded responses against criteria hidden from the response generator.
+
+The [evaluation guide](evals/README.md) provides commands to generate and grade
+your own responses, plus the published cases, results, and methodology. To check
+the saved results without making model calls:
+
+```sh
+python evals/eval.py check
+```
 
 ## License
 
