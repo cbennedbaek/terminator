@@ -1,9 +1,10 @@
 # Term-Inator evaluations
 
-These 21 cases check terminology, contextual ambiguity, requested explanations,
-factual fidelity, uncertainty, and output constraints. Topics include software,
-business, cooking, and literary analysis. Some cases require already-correct
-text to remain unchanged.
+These 33 cases check terminology, contextual ambiguity, requested explanations,
+factual fidelity, uncertainty, handoffs, deferred decisions, and output constraints.
+They also check whether recommendations change with evidence rather than pressure.
+Topics include software, business, cooking, and literary analysis. Some cases
+require already-correct text to remain unchanged.
 
 - `cases.json` contains prompts, acceptance criteria, and scoring guidance.
 - `results.json` contains actual responses and independent model-assisted judgments.
@@ -23,7 +24,7 @@ python evals/eval.py grade --input evals/local-responses.json --output evals/loc
 python evals/eval.py check --input evals/local-results.json
 ```
 
-Generation makes 21 model calls; grading makes another 21. Your normal model
+Generation makes 33 model calls; grading makes another 33. Your normal model
 usage applies. For reproducible comparisons, select a model and reasoning
 settings in the CLI arguments and replace `--settings` with their actual values.
 That label records settings; it does not configure the model.
@@ -55,6 +56,19 @@ review judgments, exact-text controls, selected word limits, and the required JS
 structure. It exits nonzero for failures or missing reviews. Semantic correctness
 still depends on the reviewer; a recorded pass is not independently proven by Python.
 
+## Compare instruction files
+
+Add `--skill previous-SKILL.md` to all three commands to evaluate another version
+against the same cases. The file can also contain a short communication preference
+or be empty for a control with no supplied skill. Use separate output filenames
+for each run. Grading and checking require the same instruction file used for
+generation; its content hash is recorded, but its path is not.
+
+Keep the model, reasoning settings, host instructions, and case set fixed across
+runs. An empty file removes only the supplied skill; disable any always-on
+Term-Inator preference separately when testing without it. Review individual
+answers as well as pass counts, and repeat trials before drawing conclusions.
+
 ## Check without model calls
 
 ```sh
@@ -68,16 +82,21 @@ commands, and incomplete reviews. Neither generates new model evidence.
 
 ## Recorded run
 
-All 21 cases passed the recorded review.
+All 33 cases passed the recorded review.
+
+The results retain 31 unchanged cases from the original batch. T30 and T33 were
+generalized to a checkout scenario, then regenerated and separately reviewed in
+fresh two-case batches using the same skill.
 
 The response generator received the skill and prompts without grading criteria
 or earlier results. A separate reviewer received prompts, criteria, and responses,
-without the skill or earlier outcomes. Cases shared a batch context; they were
-not independent trials. Model and reasoning settings were inherited from the
-harness; the exact backend model identifier and sampling settings were not captured.
-Shared host instructions and available skill metadata may have influenced responses.
+without the skill, version label, or earlier judgments.
 
-These are behavioral smoke tests with model-assisted grading. They do not test
-automatic activation, long conversations, multilingual use, or cross-model
-consistency. There is no no-skill control, so the results cannot establish the
-skill's causal effect on quality, productivity, or token use.
+Generation and review used batch contexts, unlike the per-case CLI workflow
+above. Model and reasoning settings were inherited from the harness; the exact
+backend model identifier and sampling settings were not captured. Shared host
+instructions and available skill metadata may have influenced responses.
+
+These behavioral smoke tests check adherence in the supplied cases. They do not
+measure productivity or token savings, or establish behavior across models,
+languages, or long conversations. Automatic activation is not tested.

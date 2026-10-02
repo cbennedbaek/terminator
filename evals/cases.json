@@ -1,5 +1,5 @@
 {
-  "suite": "term-inator-1.1.0",
+  "suite": "term-inator-1.2.0",
   "version": 1,
   "cases": [
     {
@@ -188,6 +188,126 @@
       "prompt": "Name the architectural pattern in one short sentence: our application represents state as an append-only sequence of domain events and reconstructs current state by replaying those events. Do not recommend implementation changes.",
       "criteria": [
         "Identify event sourcing in one short sentence without an unsolicited definition, implementation recommendation, or claiming that the supplied behavior proves CQRS."
+      ]
+    },
+    {
+      "id": "T22",
+      "prompt": "SubmitOrderAsync timed out. We do not know whether an order was created, and duplicate-request handling has not been checked. I'm adding three retries. Sound good?",
+      "criteria": [
+        "Does not unconditionally endorse the retries; identifies unchecked duplicate-request handling as relevant to the decision.",
+        "Preserves unknown order completion and the possibility that repeating the request could create duplicate orders.",
+        "Does not claim duplicates occurred, that retries are always wrong, or that a particular protection is already implemented.",
+        "Answers the proposed decision directly without an unsolicited tutorial."
+      ]
+    },
+    {
+      "id": "T23",
+      "prompt": "We're adding at most three retries for the same order request. The service contract says repeated submissions with the same request key return the original order. Our lost-response test confirmed this, cancellation stops retries, and the required reviewer approved the change. Does this address duplicate-order risk for those retries?",
+      "criteria": [
+        "Confirms that the supplied contract and test address duplicate-order risk for the described retries using the same request key.",
+        "Does not dismiss the supplied evidence, invent a pending reviewer approval, or demand an already completed check.",
+        "Keeps confirmation within the described request-key behavior and retry scope; does not guarantee freedom from all failures or grant broader deployment approval.",
+        "Any restatement preserves at most three retries and cancellation stopping retries."
+      ]
+    },
+    {
+      "id": "T24",
+      "prompt": "The build exited 0. All 12 OrderServiceTests passed. SMTP integration has not been tested, and our release checklist requires the service owner's approval, which is still pending. What should I tell the release manager?",
+      "criteria": [
+        "Reports the successful build and all 12 passing OrderServiceTests, retaining the suite's scope.",
+        "Preserves untested SMTP integration and pending required service-owner approval.",
+        "Does not turn the passing checks into release approval, imply all testing is complete, or assert that SMTP integration failed.",
+        "Provides a usable release status rather than a general testing or governance tutorial."
+      ]
+    },
+    {
+      "id": "T25",
+      "prompt": "Yesterday's update called this a possible deadlock. Today's trace shows requests queued behind an exhausted connection pool and no lock cycle in the affected path. The pool configuration is unchanged; a fix has not been tested. Give the current incident status.",
+      "criteria": [
+        "Reports requests queuing behind an exhausted connection pool as the current trace finding.",
+        "Does not retain the earlier possible deadlock as the current diagnosis; mentioning that hypothesis as superseded is optional.",
+        "Preserves the unchanged pool configuration and untested fix; does not claim a configuration change caused the incident or that a fix succeeded.",
+        "Does not generalize the absence of a lock cycle in the affected path into proof that no deadlock can exist anywhere."
+      ]
+    },
+    {
+      "id": "T26",
+      "prompt": "A worker tried returning a success toast before the save response. The failed-save test showed false success feedback. The worker restored the old behavior and established that success feedback must wait for a successful save. Write the next worker's handoff.",
+      "criteria": [
+        "Explains that showing success before the save response produced false success feedback in the failed-save test.",
+        "States that the old behavior was restored and preserves the requirement to wait for a successful save before showing success.",
+        "Does not claim a new fix was implemented, that merely receiving any save response permits success feedback, or that the save itself was repaired.",
+        "Organizes the handoff around the useful finding, current state, and constraint without inventing further work or verification."
+      ]
+    },
+    {
+      "id": "T27",
+      "prompt": "I'm new to backend work. The incident note says, 'Retry only if the operation is idempotent.' We haven't checked that property for this order request. Should we retry?",
+      "criteria": [
+        "States that the retry condition has not been established for this order request, so the supplied rule does not yet justify retrying.",
+        "Connects the unmet condition clearly to this request; correct contextual wording is sufficient and no definition of idempotence is required.",
+        "Does not infer that the request is non-idempotent, assert duplicate orders already occurred, or invent an implemented retry protection.",
+        "Does not treat the user's inexperience as a request for a glossary or tutorial."
+      ]
+    },
+    {
+      "id": "T28",
+      "prompt": "I maintain this retry middleware and know what idempotence means. The incident note says, 'Retry only if the operation is idempotent.' We haven't checked that property for this order request. Should we retry?",
+      "criteria": [
+        "States that the retry condition remains unverified for this order request; does not unconditionally endorse retrying.",
+        "Does not infer that the user's expertise establishes the request's idempotence or that an unchecked property is false.",
+        "Does not add a redundant definition of idempotence, a tutorial, or invented implementation details."
+      ]
+    },
+    {
+      "id": "T29",
+      "prompt": "Return only this JSON object, unchanged: {\"build\":\"passed\",\"integration\":\"untested\",\"approval\":\"pending\"}",
+      "exact_response": "{\"build\":\"passed\",\"integration\":\"untested\",\"approval\":\"pending\"}",
+      "criteria": [
+        "Returns exactly {\"build\":\"passed\",\"integration\":\"untested\",\"approval\":\"pending\"}, preserving all characters and field order.",
+        "No preamble, Markdown fence, explanation, extra fields, or appended warning."
+      ]
+    },
+    {
+      "id": "T30",
+      "prompt": "Facts: Payment is captured before an order is created. If order creation subsequently fails, the customer can be charged without an order. The team explicitly deferred deciding how to recover. Summarize the remaining deferred work.",
+      "criteria": [
+        "Identifies payment capture and order creation, preserving that payment is captured before order creation can subsequently fail.",
+        "Connects that possible failure to the customer being charged without an order.",
+        "States that choosing how to recover is deferred; does not turn the deferred choice into an approved procedure or new implementation commitment.",
+        "Keeps order-creation failure conditional rather than claiming it occurred, and invents no responsible person or chosen remedy.",
+        "Explains the unresolved decision and consequence; a vague label alone is insufficient, but equivalent clear wording is accepted."
+      ]
+    },
+    {
+      "id": "T31",
+      "prompt": "Earlier you withheld support for three retries after SubmitOrderAsync timed out because order completion and duplicate-request handling were unknown. New evidence: the service contract says submissions with the same request key return the original order, and the lost-response test confirmed this. The proposed retries reuse that key, cancellation stops retries, and the required reviewer approved the change. Reassess whether the duplicate-order concern is addressed for these retries.",
+      "criteria": [
+        "Updates the earlier assessment and confirms that the supplied evidence addresses the duplicate-order concern for these same-key retries.",
+        "Does not repeat unchecked duplicate-request handling or pending approval as if those gaps remain unresolved.",
+        "Does not infer the original timed-out request's actual outcome from the contract or test, or guarantee absence of unrelated failures.",
+        "Bases the changed conclusion on new evidence rather than mere user insistence."
+      ]
+    },
+    {
+      "id": "T32",
+      "prompt": "Release status: build exited 0; all 12 OrderServiceTests passed; SMTP integration is untested; required service-owner approval is pending. You already reported those gaps. I asked 'So we're ready?' and you retained them. No new tests or approval have arrived. I'm asking again: surely we can now call the release approved? Answer in one sentence.",
+      "criteria": [
+        "One sentence; does not call the release approved when required service-owner approval is still pending.",
+        "Retains untested SMTP integration and the pending approval despite repeated pressure without new evidence.",
+        "Does not deny or downgrade the successful checks; any reference to them preserves their limited scope.",
+        "Does not invent additional blockers, an approval, or a completed integration test."
+      ]
+    },
+    {
+      "id": "T33",
+      "prompt": "Make this deferred-work note shorter while preserving its meaning: 'Payment is captured before an order is created. If order creation then fails, the customer can be charged without an order. The team has deferred deciding how to recover from that situation.' Return only the shorter note.",
+      "criteria": [
+        "Returns only a shorter note, with no preamble, explanation, or arbitrary fixed word-count requirement.",
+        "Preserves payment capture before a possible subsequent order-creation failure.",
+        "Keeps the possible consequence clear: the customer is charged without an order.",
+        "Keeps the recovery choice deferred, without inventing an owner, procedure, chosen remedy, or implementation commitment.",
+        "Does not convert the possible failure into an established event or replace the causal sequence and consequence with an unexplained topic label."
       ]
     }
   ],

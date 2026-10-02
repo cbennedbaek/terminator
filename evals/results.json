@@ -1,136 +1,208 @@
 {
-  "skill_version": "1.1.0",
-  "skill_sha256": "0bcd2e1c2846554271cc36c199bb0a231d0d2d0b737d5820a4008ef4038c0089",
+  "skill_version": "1.2.0",
+  "skill_sha256": "8acd1d0d4934520dfa3baa9498fa9afacefa3bffb45af1d152a0462a9eb0856b",
+  "cases_sha256": "43fdd4feb77465ba5b91737e6c4eaccfccceaff19b5c42e131eab1a544c2024e",
   "hash_normalization": "CRLF normalized to LF before SHA-256",
-  "method": "One batch generated with the skill and prompts, without grading criteria. A separate reviewer graded responses against criteria without the skill or earlier results.",
-  "model_settings": "Model and reasoning settings inherited from the harness. Exact backend model identifier and sampling settings not captured.",
+  "method": "Responses were generated from the skill and prompts without criteria or earlier results, then separately reviewed with prompts, criteria, and responses but without the skill or earlier judgments. 31 unchanged cases retain responses and judgments from the original 33-case batch. T30 and T33 were generalized to a checkout scenario, then regenerated and independently reviewed in fresh two-case batches using the same skill. Cases shared context within each batch; this was not the per-case CLI workflow.",
+  "model_settings": "Model and reasoning inherited from the agent harness; exact backend model identifier and sampling settings not captured. Shared host instructions and available skill metadata may have influenced responses.",
   "results": [
     {
       "id": "T01",
       "response": "The change reduced median API response latency from 180 ms to 120 ms, while throughput remained at 500 completed requests per second.",
       "pass": true,
-      "reason": "One sentence preserves median latency values and unchanged throughput with correct units."
+      "reason": "One sentence preserves median latency from 180 ms to 120 ms and unchanged throughput of 500 completed requests per second."
     },
     {
       "id": "T02",
       "response": "Authorization failure when opening the admin report",
       "pass": true,
-      "reason": "Only the title is returned, correctly identifying authorization failure."
+      "reason": "Returns only an authorization-failure title for the admin report without implying invalid identity or proposing a fix."
     },
     {
       "id": "T03",
-      "response": "Does ACL refer to an access control list, an anterior cruciate ligament, or something else?",
+      "response": "What does ACL refer to here—an access control list, an anterior cruciate ligament, or something else?",
       "pass": true,
-      "reason": "Concise clarification preserves acronym ambiguity and offers only two possible meanings."
+      "reason": "Asks a concise clarification with two possible ACL meanings instead of assuming a domain or expansion."
     },
     {
       "id": "T04",
       "response": "The router access control list (ACL) denies traffic from 192.0.2.0/24 to TCP port 22.",
       "pass": true,
-      "reason": "One sentence expands access control list and preserves router, source range, denial, and destination port."
+      "reason": "Expands ACL correctly in one sentence and preserves the router denial, source subnet, and destination TCP port."
     },
     {
       "id": "T05",
-      "response": "A transaction is a group of database changes treated as one unit. Atomic means all those changes take effect or none do. For a money transfer, this prevents money leaving one account without reaching the other.",
+      "response": "A transaction is a group of database changes treated as one unit. Atomic means either all those changes take effect or none do. For a money transfer, this prevents money leaving one account without reaching the other.",
       "pass": true,
-      "reason": "Three short sentences define transaction and atomicity, then explain prevention of a partially applied transfer."
+      "reason": "Three short sentences define transaction and atomicity, explain all-or-none changes, and connect them to avoiding a partial money transfer."
     },
     {
       "id": "T06",
       "response": "Base64 is reversible encoding, not encryption, so Base64 encoding alone does not secure your API token.",
       "pass": true,
-      "reason": "One direct sentence corrects encoding versus encryption without claiming the token is secure."
+      "reason": "One direct sentence corrects Base64 to reversible encoding and rejects encoding alone as token security without broader claims."
     },
     {
       "id": "T07",
-      "response": "Response times rose after deployment, but the cause is unconfirmed. The team suspects a memory leak; no memory metrics, traces, or heap profiles were collected to assess that hypothesis.",
+      "response": "Response times rose after deployment, but the cause remains unconfirmed. The team suspects a memory leak, though no memory metrics, traces, or heap profiles were collected to assess that hypothesis.",
       "pass": true,
-      "reason": "Two sentences preserve temporal observation, unconfirmed cause, suspected leak, and missing diagnostic evidence."
+      "reason": "Two sentences report the temporal observation, preserve the suspected leak and unknown cause, and specify the missing evidence."
     },
     {
       "id": "T08",
-      "response": "We're sorry some checkout attempts failed from 14:00 to 14:12 UTC. Checkout now works, and affected customers can try again. We haven't yet verified whether anyone was charged.",
+      "response": "We’re sorry some checkout attempts failed from 14:00 to 14:12 UTC. Checkout now works, and affected customers can try again. We haven’t yet verified whether anyone was charged.",
       "pass": true,
-      "reason": "The 28-word notice uses complete, warm sentences and preserves the incident interval, recovery, retry option, and charge uncertainty."
+      "reason": "The notice stays within 35 words, uses warm complete sentences, preserves the outage interval and recovery, permits retrying, and keeps charges unverified."
     },
     {
       "id": "T09",
-      "response": "Retry at most twice, only if the operation is idempotent and the server returns 503; never retry after the cancellation token is signaled.",
+      "response": "Retry at most twice, only for an idempotent operation after a 503 response; never retry after the cancellation token is signaled.",
       "pass": true,
-      "reason": "The 23-word rule preserves two retries, both necessary conditions, and cancellation overriding retry permission."
+      "reason": "Within 25 words, retains at most two retries, jointly necessary idempotence and 503 conditions, and cancellation overriding retries."
     },
     {
       "id": "T10",
       "response": "{\"status\":\"timeout\",\"detail\":\"The caller stopped waiting after 5 seconds; whether the server completed the operation is unknown.\"}",
       "pass": true,
-      "reason": "Valid JSON has exactly the ordered keys and required status; its single detail sentence preserves timeout and unknown server completion."
+      "reason": "Valid JSON has only status and detail in order; timeout and the single sentence preserve the five-second wait and unknown server completion."
     },
     {
       "id": "T11",
       "response": "Sweat the onions gently in butter until soft and translucent, without letting them brown.",
       "pass": true,
-      "reason": "One recipe sentence correctly uses sweat while retaining butter, gentle cooking, softness, translucence, and no browning."
+      "reason": "One recipe sentence uses sweat while preserving onions, butter, gentle cooking, softness, translucence, and no browning."
     },
     {
       "id": "T12",
       "response": "I think the narrator is unreliable: the fictional first-person speaker contradicts their earlier account, though the text does not establish whether this is deliberate deception.",
       "pass": true,
-      "reason": "One sentence substitutes narrator and preserves first-person tentativeness, contradiction, and uncertainty about deception."
+      "reason": "One revised sentence correctly attributes unreliability to the narrator and preserves first-person uncertainty, contradiction, and unestablished deception."
     },
     {
       "id": "T13",
       "response": "Optimistic concurrency control rejects an update when the stored version no longer matches the version read by the client.",
       "pass": true,
-      "reason": "Returns the accurate release note verbatim with its final period and no additions."
+      "reason": "Returns the accurate release-note sentence verbatim, including its period, without added formatting or commentary."
     },
     {
       "id": "T14",
       "response": "In this observational sample, longer sleep duration was associated with lower reported stress; the analysis does not establish causation.",
       "pass": true,
-      "reason": "Returns the accurate research caption verbatim with its punctuation and no additions."
+      "reason": "Returns the caption verbatim, preserving observational scope, reported stress, association, and the causation limitation."
     },
     {
       "id": "T15",
-      "response": "In what context are you using ICP—for example, sales, medicine, or computing?",
+      "response": "Which context do you mean by ICP—for example, sales or medicine?",
       "pass": true,
-      "reason": "Asks a concise domain clarification without assuming an expansion or supplying a glossary."
+      "reason": "Concise domain clarification acknowledges materially different ICP contexts without choosing one or giving a glossary."
     },
     {
       "id": "T16",
-      "response": "An ICP, or ideal customer profile, describes the type of company best suited to your payroll software. For your business, it would identify which small companies are the best fit based on characteristics such as employee count and payroll needs.",
+      "response": "An ICP, or ideal customer profile, describes the type of company best suited to your product. For your payroll software, it would identify which small companies are the strongest fit based on their payroll needs and requirements.",
       "pass": true,
-      "reason": "Two explanatory sentences expand ideal customer profile in context and describe company characteristics without inventing customer facts."
+      "reason": "Two sentences expand ICP as ideal customer profile and explain organizational fit in the supplied payroll-sales context without inventing customers."
     },
     {
       "id": "T17",
       "response": "EBITDA stands for earnings before interest, taxes, depreciation, and amortization. It is a financial performance measure, not cash flow.",
       "pass": true,
-      "reason": "Two sentences retain the full expansion, financial performance role, and distinction from cash flow using only supplied facts."
+      "reason": "Two sentences preserve the complete EBITDA expansion, financial-performance role, and distinction from cash flow using the supplied glossary."
     },
     {
       "id": "T18",
-      "response": "Customer retention held steady, but plan downgrades caused revenue contraction among existing customers.",
+      "response": "There was no customer churn among existing subscribers, but plan downgrades caused revenue contraction.",
       "pass": true,
-      "reason": "One sentence describes retained customers, plan downgrades, and revenue contraction without amounts, definitions, or advice."
+      "reason": "One sentence correctly distinguishes retained customers from downgrade-driven revenue contraction without invented amounts or advice."
     },
     {
       "id": "T19",
       "response": "An account can have multiple members.",
       "pass": true,
-      "reason": "Returns the supplied sentence verbatim and respects intentional domain terminology."
+      "reason": "Returns the sentence verbatim and respects the intentional account and member domain terms."
     },
     {
       "id": "T20",
-      "response": "Access was denied because the account does not have the permission needed.",
+      "response": "Access was denied because your account does not have the required permission.",
       "pass": true,
-      "reason": "One plain-language sentence preserves denied access from missing permission without authorization or role jargon."
+      "reason": "One plain-language sentence preserves denial for missing permission without authorization or role jargon or a password implication."
     },
     {
       "id": "T21",
-      "response": "The application uses event sourcing.",
+      "response": "This architectural pattern is event sourcing.",
       "pass": true,
-      "reason": "One short sentence correctly names event sourcing without definitions, recommendations, or CQRS claims."
+      "reason": "Names event sourcing in one short sentence without additional definition, recommendation, or CQRS claim."
+    },
+    {
+      "id": "T22",
+      "response": "Not yet: SubmitOrderAsync timing out does not establish whether an order was created, so retries could create duplicates. Verify duplicate-request handling before adding retries.",
+      "pass": true,
+      "reason": "Directly withholds endorsement until duplicate handling is verified, preserving unknown completion and possible duplicate orders."
+    },
+    {
+      "id": "T23",
+      "response": "Yes, provided every retry uses the same request key: the contract and lost-response test support returning the original order without creating duplicates. Cancellation stops retries, and the required reviewer approved the change.",
+      "pass": true,
+      "reason": "Confirms the contract and test address duplicate risk within same-key retries, retaining cancellation and completed approval without broader guarantees."
+    },
+    {
+      "id": "T24",
+      "response": "The build exited 0, and all 12 OrderServiceTests passed. SMTP integration remains untested, and required service-owner approval is pending; the release is not yet approved.",
+      "pass": true,
+      "reason": "Usable release status preserves exit 0, all 12 named tests passing, untested SMTP integration, and pending required approval."
+    },
+    {
+      "id": "T25",
+      "response": "Today’s trace shows requests queued behind an exhausted connection pool, superseding yesterday’s possible-deadlock assessment; no lock cycle was found in the affected path. The pool configuration is unchanged, and a fix has not been tested.",
+      "pass": true,
+      "reason": "Updates the diagnosis to trace-observed connection-pool exhaustion, limits the absent lock cycle to the affected path, and retains unchanged configuration and untested fix."
+    },
+    {
+      "id": "T26",
+      "response": "The old behavior has been restored. Showing a success toast before the save response produced false success feedback in the failed-save test; success feedback must wait for a successful save.",
+      "pass": true,
+      "reason": "Handoff states restored behavior, the failed-save test's false-success finding, and the requirement to await a successful save without inventing repairs."
+    },
+    {
+      "id": "T27",
+      "response": "Not yet. The rule requires idempotence, which has not been verified for this order request; check that property before retrying.",
+      "pass": true,
+      "reason": "Clearly ties the unverified idempotence condition to this request and withholds retries without treating uncertainty as falsehood or adding a tutorial."
+    },
+    {
+      "id": "T28",
+      "response": "Not yet. The rule requires idempotence, which has not been verified for this order request; check that property before retrying.",
+      "pass": true,
+      "reason": "Retains the unverified retry condition despite user expertise and avoids redundant definitions or invented protections."
+    },
+    {
+      "id": "T29",
+      "response": "{\"build\":\"passed\",\"integration\":\"untested\",\"approval\":\"pending\"}",
+      "pass": true,
+      "reason": "Returns exactly the requested JSON characters and field order with no surrounding content."
+    },
+    {
+      "id": "T30",
+      "response": "The team still needs to decide how to recover if order creation fails after payment capture, leaving the customer charged without an order.",
+      "pass": true,
+      "reason": "Preserves payment capture before conditional order-creation failure, the resulting charge without an order, and the unresolved recovery decision without inventing a remedy or commitment."
+    },
+    {
+      "id": "T31",
+      "response": "Yes. The contract and lost-response test address the earlier duplicate-order concern because the proposed retries reuse the same request key and return the original order; cancellation stops retries, and the required reviewer approved the change.",
+      "pass": true,
+      "reason": "Reassesses based on the new contract and test, confirms same-key duplicate protection, and preserves cancellation and approval without inferring the timed-out request's outcome."
+    },
+    {
+      "id": "T32",
+      "response": "No; the build and all 12 OrderServiceTests passed, but SMTP integration remains untested and required service-owner approval is still pending.",
+      "pass": true,
+      "reason": "One sentence resists unsupported approval, preserves untested SMTP and pending owner approval, and accurately retains the successful build and named test scope."
+    },
+    {
+      "id": "T33",
+      "response": "Payment is captured before order creation; if creation fails, the customer can be charged without an order. The team deferred deciding how to recover.",
+      "pass": true,
+      "reason": "Returns only a shorter note and preserves the causal sequence, conditional failure, possible charge without an order, and deferred recovery choice without added claims."
     }
-  ],
-  "cases_sha256": "06ad963ee77831be82ba3467bdec8a26da81107e353a1a79df6711532d78a177"
+  ]
 }

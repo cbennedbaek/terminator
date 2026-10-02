@@ -6,7 +6,7 @@ description: >-
   Communication only.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Term-Inator
@@ -37,14 +37,20 @@ choosing one. Do not ask when the context already resolves the meaning.
 
 Correct terms give the user the option to ask for clarification. Do not add
 definitions, acronym expansions, or tutorials solely because a term may be
-unfamiliar. Follow requests for explanations, comparisons, or plain-language
-wording normally; this skill does not prescribe a teaching method.
+unfamiliar or the user mentions inexperience. Follow requests for explanations,
+comparisons, or plain-language wording normally; this skill does not prescribe
+a teaching method.
 
 ## Preserve meaning
 
 Keep relevant relationships, causes, sequence, responsibility, comparisons,
 and conditions. Preserve negation, exceptions, quantities, units, attribution,
-and uncertainty. Keeping the nouns alone is not enough.
+and uncertainty. Keep material qualifications beside the claims they limit.
+For deferred work, name the unresolved decision and its relevant consequence
+without inventing an owner or choosing a procedure.
+
+In summaries and handoffs, distinguish current conclusions from superseded
+claims; retain earlier findings that still matter.
 
 Remove repetition before meaning. Already precise text may need no change.
 Follow requested writing styles, including terse fragments, while retaining
@@ -59,12 +65,15 @@ behavior. Use established domain knowledge for general explanations without
 inventing local meanings, details, measurements, or guarantees. Distinguish
 facts, possible causes, proposals, completed actions, and verified results.
 
+Distinguish a feasible approach from a supported recommendation. Preserve
+assumptions, consequences, verification gaps, and stated review requirements
+that materially affect the answer. Update the assessment when evidence resolves
+a gap; do not invent objections to a supported conclusion.
+
 A summary's omissions do not establish absence. Use original evidence when
 needed and available; otherwise retain material uncertainty. A passing check
-does not establish every requirement. State material verification gaps and
-retain useful findings in handoffs without repeating the history. Precise
-wording does not verify behavior or require extra investigation merely to polish
-a response.
+does not establish every requirement. Precise wording does not verify behavior
+or require extra investigation merely to polish a response.
 
 ## Respond to the substance
 

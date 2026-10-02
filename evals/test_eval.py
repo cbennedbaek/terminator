@@ -48,6 +48,58 @@ class EvalTests(unittest.TestCase):
         with self.assertRaises(subprocess.TimeoutExpired):
             runner.invoke([sys.executable, "-c", "import time; time.sleep(10)"], "", 0.05)
 
+    def test_selected_skill_and_exact_response(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            evals = root / "evals"
+            evals.mkdir()
+            default, alternate = root / "SKILL.md", root / "preference.md"
+            default.write_text("Default communication instructions.", encoding="utf-8")
+            alternate.write_bytes(b"Alternative instructions.\r\nPreserve meaning.\r\n")
+            suite = {"scoring": "Preserve exact text.", "cases": [
+                {"id": "T29", "prompt": "Return the supplied text unchanged.",
+                 "criteria": ["Exact response."], "exact_response": "Keep this text."}
+            ]}
+            (evals / "cases.json").write_text(json.dumps(suite), encoding="utf-8")
+            with patch.object(runner, "ROOT", evals):
+                for skill in [default, alternate]:
+                    with self.subTest(skill=skill.name):
+                        options = [] if skill == default else ["--skill", str(skill)]
+                        raw, graded = root / (skill.stem + "-raw.json"), root / (skill.stem + "-graded.json")
+
+                        def fake_model(command, prompt, timeout):
+                            if prompt.startswith("Apply these communication instructions:"):
+                                self.assertIn(skill.read_text(encoding="utf-8"), prompt)
+                                self.assertNotIn("exact_response", prompt)
+                                return "Keep this text."
+                            return '{"pass": true, "reason": "Synthetic runner test."}'
+
+                        with patch.object(runner, "invoke", side_effect=fake_model):
+                            for args in [
+                                ["run", "--output", str(raw), "--settings", "offline fake"] + options + ["--", "fake"],
+                                ["grade", "--input", str(raw), "--output", str(graded), "--settings", "offline fake"] + options + ["--", "fake"],
+                                ["check", "--input", str(graded)] + options,
+                            ]:
+                                with patch.object(sys, "argv", ["eval.py"] + args):
+                                    self.assertEqual(runner.main(), 0)
+                        record = runner.load(graded)
+                        self.assertEqual(record["skill_sha256"], runner.content_hash(skill))
+                        self.assertNotIn(directory, graded.read_text(encoding="utf-8"))
+                        record["results"][0]["response"] = "Changed text."
+                        self.assertEqual(runner.check(record, suite["cases"], skill), ["T29: Exact text changed"])
+                        if skill == alternate:
+                            with self.assertRaisesRegex(ValueError, "Skill differs"):
+                                runner.check(runner.load(graded), suite["cases"])
+                        skill.write_text("Changed instructions.", encoding="utf-8")
+                        for args in [
+                            ["check", "--input", str(graded)] + options,
+                            ["grade", "--input", str(raw), "--output", str(root / "regrade.json"), "--settings", "offline fake"] + options + ["--", "fake"],
+                        ]:
+                            with patch.object(sys, "argv", ["eval.py"] + args):
+                                with self.assertRaisesRegex(ValueError, "Skill differs"):
+                                    runner.main()
+                        self.assertFalse((root / "regrade.json").exists())
+
     def test_run_grade_check_and_overwrite_protection(self):
         answers = {row["id"]: row["response"] for row in self.record["results"]}
 

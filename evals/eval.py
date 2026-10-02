@@ -38,8 +38,8 @@ def content_hash(path):
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
-def validate(record, cases):
-    require(record["skill_sha256"] == content_hash(ROOT.parent / "SKILL.md"), "Skill differs from the tested version")
+def validate(record, cases, skill_path=None):
+    require(record["skill_sha256"] == content_hash(skill_path or ROOT.parent / "SKILL.md"), "Skill differs from the tested version")
     require(record["cases_sha256"] == content_hash(ROOT / "cases.json"), "Cases differ from the tested version")
     rows = record["results"]
     ids = [row["id"] for row in rows]
@@ -49,13 +49,15 @@ def validate(record, cases):
         require(isinstance(row["response"], str) and row["response"].strip(), f"Empty response: {row['id']}")
 
 
-def check(record, cases):
-    validate(record, cases)
+def check(record, cases, skill_path=None):
+    validate(record, cases, skill_path)
     errors = []
     by_id = {case["id"]: case for case in cases}
     for row in record["results"]:
         case_id, response = row["id"], row["response"]
         try:
+            if "exact_response" in by_id[case_id]:
+                require(response == by_id[case_id]["exact_response"], "Exact text changed")
             if case_id in {"T13", "T14", "T19"}:
                 require(response == by_id[case_id]["prompt"].split("'")[-2], "Exact text changed")
             if case_id in {"T08", "T09"}:
@@ -101,6 +103,7 @@ def main():
     parser.add_argument("action", choices=["run", "grade", "check"])
     parser.add_argument("--input", type=Path, default=ROOT / "results.json")
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--skill", type=Path, default=ROOT.parent / "SKILL.md", help="Communication instructions to run or verify; defaults to the repository skill")
     parser.add_argument("--settings", help="Model, reasoning settings, and relevant host instructions; no private paths")
     parser.add_argument("--timeout", type=int, default=300, help="Seconds per model invocation")
     # Everything after -- belongs to the model command, without shell interpolation.
@@ -112,7 +115,7 @@ def main():
     cases = suite["cases"]
     require(len(cases) == len({case["id"] for case in cases}), "Duplicate case IDs")
     if args.action == "check":
-        errors = check(load(args.input), cases)
+        errors = check(load(args.input), cases, args.skill)
         for error in errors:
             print(error, file=sys.stderr)
         if errors:
@@ -124,12 +127,12 @@ def main():
     require(command and args.output and args.settings, "run/grade require --output, --settings, and a command after --")
     require(args.timeout > 0, "Timeout must be positive")
     if args.action == "run":
-        record = {"skill_sha256": content_hash(ROOT.parent / "SKILL.md"), "cases_sha256": content_hash(ROOT / "cases.json"), "hash_normalization": "CRLF normalized to LF before SHA-256",
+        record = {"skill_sha256": content_hash(args.skill), "cases_sha256": content_hash(ROOT / "cases.json"), "hash_normalization": "CRLF normalized to LF before SHA-256",
                   "model_settings": args.settings, "method": "Fresh command and temporary working directory for each case; supplied skill and prompt only.", "results": []}
-        skill = (ROOT.parent / "SKILL.md").read_text(encoding="utf-8")
+        skill = args.skill.read_text(encoding="utf-8")
     else:
         record = load(args.input)
-        validate(record, cases)
+        validate(record, cases, args.skill)
         for row in record["results"]:
             row.pop("pass", None)
             row.pop("reason", None)

@@ -4,14 +4,15 @@
 
 <h1 align="center">Term-Inator</h1>
 
-<p align="center"><strong>Correct terms. Precise communication.</strong></p>
+<p align="center">A communication skill for AI assistants</p>
 
-Term-Inator is a communication skill for Codex. It uses correct domain terms
-across topics while preserving relationships, conditions, and uncertainty.
-**Name the thing, describe what happens, and keep the distinctions that matter.**
+Term-Inator helps AI assistants use the right terms for the subject you're
+working on and keep the context that makes an answer useful. The idea is simple: name the
+concept, describe what's happening, and make the important details clear.
 
-Unfamiliar terms give you the option to ask for clarification. Term-Inator does
-not add definitions or lessons unless requested.
+We all know some subjects better than others. Using the correct term gives you
+something to recognize, look up, or ask about. You choose when you'd like an
+explanation; Term-Inator keeps those on request.
 
 ## Examples
 
@@ -27,22 +28,38 @@ not add definitions or lessons unless requested.
 
 > Conversion rate rose by 2 percentage points, a 25% relative increase.
 
+**Deferred work:** Payment is captured before an order is created. If order
+creation fails, the customer may be charged without an order. The team has
+deferred choosing how to recover.
+
+> Deferred: decide how to recover if order creation fails after payment is
+> captured, leaving the customer charged without an order.
+
 ## What to expect
 
-Answers lead with the substance, use valid domain and project terminology,
-and keep uncertainty visible. Term-Inator respects your requested language,
-tone, length, and format. It asks for context when ambiguity affects the answer,
-leaves already-correct text alone, and omits empty agreement.
+The goal is to make answers easier to work with. They use the vocabulary of your
+subject or project, say what's known, and keep relevant uncertainty clear.
+Your requested language, tone, length, and format still guide the response.
 
-## Always-on setup for Codex
+In a summary, that means keeping the findings and open decisions someone needs
+to continue the work. In a recommendation, it means explaining what the evidence
+supports and reconsidering when new information arrives. When a term could mean
+different things, a focused question helps establish the right context.
 
-Complete both steps to read and apply Term-Inator at the start of every session.
+## Always-on setup
+
+Codex is the primary setup documented here. The communication instructions can
+also be used with other models and compatible agent hosts; loading and activation
+depend on the host.
+
+These two steps make Term-Inator part of your usual Codex setup, so you can
+ask questions normally in each new session.
 
 ### 1. Install the skill
 
 From the repository root (the folder containing `SKILL.md`), choose your shell.
-These commands install the skill for your user. They stop if that destination
-already exists; compare an existing installation before updating it.
+These commands install the skill for your user. If you already have it installed,
+compare the existing files before updating; the commands preserve that installation.
 
 PowerShell:
 
@@ -82,11 +99,9 @@ Add this once to `~/.codex/AGENTS.md` using Codex's
 ```markdown
 ## Communication
 
-At the start of every session, read the installed term-inator SKILL.md and apply
-it to all assistant communication across topics. Use correct domain terms without
-unsolicited definitions. Preserve relationships, conditions, and uncertainty,
-and respect requested formats and authored voice. Honor explicit requests to
-disable the skill for the rest of the session.
+At session startup, read the installed term-inator SKILL.md and apply it across
+assistant replies. Respect requested formats, authored voice, and explicit
+requests to disable it for the session.
 ```
 
 Replace older Term-Inator guidance if present; keep unrelated instructions. Use
@@ -94,12 +109,12 @@ Replace older Term-Inator guidance if present; keep unrelated instructions. Use
 for project-only defaults. An `AGENTS.override.md` at the same scope takes
 precedence; add the preference there instead when that override is intentional.
 Start a new Codex session and ask it to confirm which communication instructions
-it loaded. Term-Inator should be active without a per-message invocation.
-Project instructions and explicit requests can still override the default.
+it loaded. After that, just ask normally. You can change the default through
+project instructions or an explicit request.
 
 ## Everyday use
 
-With the setup above, ask normally:
+Use it with the questions and tasks you already bring to your assistant:
 
 ```text
 Review this incident summary.
@@ -107,15 +122,14 @@ Summarize these survey results.
 Explain bottlenecks.
 ```
 
-Ask for explanations when you want them; include domain context for ambiguous
-acronyms. For occasional use without the persistent instruction, invoke the
-installed skill explicitly with `$term-inator`.
+When you'd like to explore a term, ask for an explanation. A little context
+helps with acronyms that have several meanings. For occasional use, you can
+also invoke the installed skill with `$term-inator`.
 
 ## Token-Evaporator-Inator Architecture
 
-**Evaporate waste. Preserve meaning.**
-
-This optional workflow combines four complementary responsibilities:
+Term-Inator works on its own. For development work, you can also pair it with
+RTK, Ponytail, and Caveman. Each has a different job:
 
 | Component | Responsibility |
 | --- | --- |
@@ -124,11 +138,11 @@ This optional workflow combines four complementary responsibilities:
 | [Caveman Full](https://github.com/juliusbrussee/caveman) | Shorten phrasing while retaining useful content. |
 | Term-Inator | Use correct domain terms and preserve relationships, conditions, and uncertainty. |
 
-Keep original command output accessible when a filtered summary is insufficient,
-and verify that implementation changes preserve requirements.
+Keep the original command output available for details you need to revisit,
+and check implementation changes against the requirements.
 
-Term-Inator also works alone. To use the combined workflow, install the companions
-through their linked documentation, then add this alongside the Term-Inator
+To use them together, install the companions through their linked documentation,
+then add this alongside the Term-Inator
 instruction in your `AGENTS.md`:
 
 ```markdown
@@ -140,9 +154,11 @@ relationships, conditions, and uncertainty. Honor explicit mode changes.
 
 ## Evaluation
 
-**21 of 21 cases passed** the recorded model-assisted review, covering terminology,
-ambiguity, requested explanations, uncertainty, and output formats. A separate
-reviewer graded responses against criteria hidden from the response generator.
+The evaluation suite gives you concrete examples to inspect and try yourself.
+**33 of 33 cases passed** the recorded model-assisted review, covering terminology,
+requested explanations, uncertainty, handoffs, deferred decisions, and output
+formats. These smoke tests check specific communication behaviors; a separate
+reviewer grades responses against criteria hidden from the response generator.
 
 The [evaluation guide](evals/README.md) provides commands to generate and grade
 your own responses, plus the published cases, results, and methodology. To check
@@ -151,6 +167,14 @@ the saved results without making model calls:
 ```sh
 python evals/eval.py check
 ```
+
+## Project notes
+
+For the thinking behind the skill, read the [rationale](docs/RATIONALE.md): how it
+started, which ideas shaped it, and the supporting research. The
+[lexicon](docs/LEXICON.md) explains the terms used in those discussions. The
+[changelog](docs/CHANGELOG.md) records what's changed, and the
+[roadmap](docs/ROADMAP.md) describes what we'd like to explore next.
 
 ## License
 
