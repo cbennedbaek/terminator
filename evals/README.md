@@ -1,12 +1,16 @@
 # Term-Inator evaluations
 
-These 33 cases check terminology, contextual ambiguity, requested explanations,
+These 37 cases check terminology, contextual ambiguity, requested explanations,
 factual fidelity, uncertainty, handoffs, deferred decisions, and output constraints.
 They also check whether recommendations change with evidence rather than pressure.
 Topics include software, business, cooking, and literary analysis. Some cases
 require already-correct text to remain unchanged.
+The final four cases check irrelevant non-actions, blocked deployment, requested
+negative findings, and disclosure of accidental data loss.
 
 - `cases.json` contains prompts, acceptance criteria, and scoring guidance.
+  The suite name `term-inator-1.3.0` identifies these cases for comparisons
+  across skill versions.
 - `results.json` contains actual responses and independent model-assisted judgments.
   Hashes identify the tested skill and cases, with CRLF normalized to LF.
 - `eval.py` generates responses, collects separate reviewer judgments, and checks
@@ -24,7 +28,7 @@ python evals/eval.py grade --input evals/local-responses.json --output evals/loc
 python evals/eval.py check --input evals/local-results.json
 ```
 
-Generation makes 33 model calls; grading makes another 33. Your normal model
+Generation makes 37 model calls; grading makes another 37. Your normal model
 usage applies. For reproducible comparisons, select a model and reasoning
 settings in the CLI arguments and replace `--settings` with their actual values.
 That label records settings; it does not configure the model.
@@ -82,11 +86,15 @@ commands, and incomplete reviews. Neither generates new model evidence.
 
 ## Recorded run
 
-All 33 cases passed the recorded review.
+36 of 37 cases passed the recorded review. T34 failed because the reply
+included irrelevant non-actions: "No tests ran; no code changed."
+The saved-result checker intentionally exits nonzero for this recorded
+failure; the evaluation-runner unit tests still pass.
 
-The results retain 31 unchanged cases from the original batch. T30 and T33 were
-generalized to a checkout scenario, then regenerated and separately reviewed in
-fresh two-case batches using the same skill.
+All responses were freshly generated for version 1.3.0. A separate
+version 1.2.0 baseline passed 36 of 37 cases against the same suite,
+also failing T34. Each version used a separate generation agent;
+a separate reviewer graded responses against the acceptance criteria.
 
 The response generator received the skill and prompts without grading criteria
 or earlier results. A separate reviewer received prompts, criteria, and responses,

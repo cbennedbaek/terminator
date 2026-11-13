@@ -40,6 +40,8 @@ deferred choosing how to recover.
 The goal is to make answers easier to work with. They use the vocabulary of your
 subject or project, say what's known, and keep relevant uncertainty clear.
 Your requested language, tone, length, and format still guide the response.
+Answers omit redundant disclaimers and repetition while retaining details needed
+to understand the outcome.
 
 In a summary, that means keeping the findings and open decisions someone needs
 to continue the work. In a recommendation, it means explaining what the evidence
@@ -155,9 +157,10 @@ relationships, conditions, and uncertainty. Honor explicit mode changes.
 ## Evaluation
 
 The evaluation suite gives you concrete examples to inspect and try yourself.
-**33 of 33 cases passed** the recorded model-assisted review, covering terminology,
+**36 of 37 cases passed** the recorded model-assisted review, covering terminology,
 requested explanations, uncertainty, handoffs, deferred decisions, and output
-formats. These smoke tests check specific communication behaviors; a separate
+formats, relevant non-actions, and material side effects. These smoke tests check
+specific communication behaviors; a separate
 reviewer grades responses against criteria hidden from the response generator.
 
 The [evaluation guide](evals/README.md) provides commands to generate and grade
@@ -167,6 +170,9 @@ the saved results without making model calls:
 ```sh
 python evals/eval.py check
 ```
+
+T34 failed because the reply included irrelevant non-actions. The recorded
+response is retained so later versions can be compared against it.
 
 ## Project notes
 

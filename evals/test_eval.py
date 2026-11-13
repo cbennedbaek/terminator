@@ -20,7 +20,11 @@ class EvalTests(unittest.TestCase):
         self.cases = runner.load(runner.ROOT / "cases.json")["cases"]
 
     def test_published_results_and_rejected_mutations(self):
-        self.assertEqual(runner.check(self.record, self.cases), [])
+        self.assertEqual(
+            runner.check(self.record, self.cases),
+            [f"{row['id']}: Reviewer failed case: {row['reason']}"
+             for row in self.record["results"] if row["pass"] is False],
+        )
         for case_id, text in [
             ("T10", '{"status":"timeout","status":"timeout","detail":"Unknown."}'),
             ("T10", '["status", "detail"]'),
@@ -31,7 +35,8 @@ class EvalTests(unittest.TestCase):
             with self.subTest(case_id=case_id, text=text):
                 altered = copy.deepcopy(self.record)
                 next(row for row in altered["results"] if row["id"] == case_id)["response"] = text
-                self.assertTrue(runner.check(altered, self.cases))
+                errors = runner.check(altered, self.cases)
+                self.assertTrue(any(error.startswith(case_id + ":") for error in errors))
         for key in ["skill_sha256", "cases_sha256"]:
             altered = {**self.record, key: "stale"}
             with self.assertRaises(ValueError):

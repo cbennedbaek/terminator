@@ -3,6 +3,14 @@
 User-visible changes by version. Git commits and release tags retain the detailed
 history and timing.
 
+## 1.3.0
+
+- Omit defensive qualifications, redundant disclaimers, and immaterial caveats.
+- Remove repeated points and low-value closing sentences while preserving meaning.
+- Expand the suite from 33 to 37 cases to check relevant negative findings and
+  material side effects. Record 36/37 passes; T34 retains irrelevant non-actions.
+- Let the runner's unit tests verify recorded failures as well as passing results.
+
 ## 1.2.0
 
 - Preserve deferred decisions and their consequences without inventing owners
