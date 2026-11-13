@@ -157,7 +157,7 @@ relationships, conditions, and uncertainty. Honor explicit mode changes.
 ## Evaluation
 
 The evaluation suite gives you concrete examples to inspect and try yourself.
-**36 of 37 cases passed** the recorded model-assisted review, covering terminology,
+**37 of 37 cases passed** the recorded model-assisted review, covering terminology,
 requested explanations, uncertainty, handoffs, deferred decisions, and output
 formats, relevant non-actions, and material side effects. These smoke tests check
 specific communication behaviors; a separate
@@ -170,9 +170,6 @@ the saved results without making model calls:
 ```sh
 python evals/eval.py check
 ```
-
-T34 failed because the reply included irrelevant non-actions. The recorded
-response is retained so later versions can be compared against it.
 
 ## Project notes
 

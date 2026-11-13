@@ -9,8 +9,8 @@ The final four cases check irrelevant non-actions, blocked deployment, requested
 negative findings, and disclosure of accidental data loss.
 
 - `cases.json` contains prompts, acceptance criteria, and scoring guidance.
-  The suite name `term-inator-1.3.0` identifies these cases for comparisons
-  across skill versions.
+  The suite name `term-inator-1.3.0` identifies the shared cases; both 1.3.0 and
+  1.3.1 use the same suite for comparison.
 - `results.json` contains actual responses and independent model-assisted judgments.
   Hashes identify the tested skill and cases, with CRLF normalized to LF.
 - `eval.py` generates responses, collects separate reviewer judgments, and checks
@@ -86,15 +86,17 @@ commands, and incomplete reviews. Neither generates new model evidence.
 
 ## Recorded run
 
-36 of 37 cases passed the recorded review. T34 failed because the reply
-included irrelevant non-actions: "No tests ran; no code changed."
-The saved-result checker intentionally exits nonzero for this recorded
-failure; the evaluation-runner unit tests still pass.
+All 37 cases passed the recorded review.
 
-All responses were freshly generated for version 1.3.0. A separate
-version 1.2.0 baseline passed 36 of 37 cases against the same suite,
-also failing T34. Each version used a separate generation agent;
-a separate reviewer graded responses against the acceptance criteria.
+In the same comparison, versions 1.2.0 and 1.3.0 each passed 36 of 37 cases.
+Both included irrelevant non-actions in T34; version 1.3.1 omitted them.
+This single batch shows a difference on that case, not a general effectiveness
+estimate. The v1.3.0 tag retains its failing response for comparison.
+
+All responses were freshly generated for this skill version against the same
+37-case suite used to compare versions 1.2.0, 1.3.0, and 1.3.1. Each version used
+a separate response-generation agent. A separate reviewer graded the responses
+against the acceptance criteria.
 
 The response generator received the skill and prompts without grading criteria
 or earlier results. A separate reviewer received prompts, criteria, and responses,

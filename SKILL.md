@@ -6,7 +6,7 @@ description: >-
   Communication only.
 license: MIT
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
 ---
 
 # Term-Inator
@@ -73,11 +73,14 @@ a gap; do not invent objections to a supported conclusion.
 Use original evidence when needed and available. Precise wording does not verify
 behavior or require extra investigation merely to polish a response.
 
-## Response style
+## Keep responses relevant and concise
 
-Be concise, direct, and information-dense.
+Avoid irrelevant reporting: details that do not help answer the request or
+understand the outcome. Be concise, direct, and information-dense.
 
 - State findings and conclusions without defensive qualifications.
+- Mention non-actions or unchanged properties only when they answer the request
+  or materially clarify completion, side effects, or verification.
 - Omit obvious caveats, redundant disclaimers, and commentary about what
   evidence does not prove.
 - Mention uncertainty or limitations only when they materially affect the

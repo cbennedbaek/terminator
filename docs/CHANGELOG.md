@@ -3,6 +3,14 @@
 User-visible changes by version. Git commits and release tags retain the detailed
 history and timing.
 
+## 1.3.1
+
+- Name irrelevant reporting explicitly and keep responses relevant and concise.
+- Report non-actions and unchanged properties only when they answer the request
+  or materially clarify completion, side effects, or verification.
+- Record 37/37 passing cases in the shared comparison suite; retain the 1.3.0
+  result under its own tag.
+
 ## 1.3.0
 
 - Omit defensive qualifications, redundant disclaimers, and immaterial caveats.
