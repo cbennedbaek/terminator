@@ -3,6 +3,16 @@
 User-visible changes by version. Git commits and release tags retain the detailed
 history and timing.
 
+## 1.3.2
+
+- Tie non-action and unchanged-property reporting to requested information,
+  unmet requirements, or material risks; omit justifications for irrelevant work.
+- Preserve the varied comparison's exact inputs and 144 graded replies:
+  66/72 passes for v1.3.1 versus 69/72 for the candidate, with all 36
+  material-information replies passing for both variants.
+- Record fresh responses and independent review for all 37 release-regression
+  cases; all passed.
+
 ## 1.3.1
 
 - Name irrelevant reporting explicitly and keep responses relevant and concise.

@@ -1,0 +1,5328 @@
+{
+  "baseline": "v1.3.1",
+  "candidate": "Response-relevance wording adopted in v1.3.2",
+  "candidate_input_metadata_version": "1.3.1",
+  "skill_hashes": {
+    "alpha": "1c33ebe82edcff3c2f594ef92cfb41c892397d21fd936f8b44ecbdad003b7cbc",
+    "beta": "5b6b4cb3fe4b53c6d7a9c70d3a1344da76616a743ecbd84a1820709abe9f1cf2"
+  },
+  "cases_sha256": "212392b8261cb794167169a885e41682cddd8c9f3fd1bd2cbbcce9d17bbccbe2",
+  "hash_normalization": "CRLF normalized to LF before SHA-256",
+  "method": "Twenty-four synthetic cases across six domains, balanced between irrelevant-detail omission and material-information preservation. Three fresh native executor batch contexts per variant, matched shuffled prompt order per run. Each of three separate native critic agents graded one shuffled version-blinded packet containing 48 responses. Generators received only their instructions and prompts, without criteria or prior answers. One bullet differed between variants. No selective regeneration or candidate revisions.",
+  "settings": "Native executor and critic role defaults; exact backend routing and sampling settings not captured. Host instructions may influence responses.",
+  "experimental_unit": "Six generator batch contexts total; responses within a batch share context. The 144 responses are not 144 independent trials.",
+  "prompt_order_seeds": [
+    511,
+    512,
+    513
+  ],
+  "summary": {
+    "overall": {
+      "alpha": {
+        "passed": 66,
+        "total": 72
+      },
+      "beta": {
+        "passed": 69,
+        "total": 72
+      }
+    },
+    "categories": {
+      "omit_irrelevant": {
+        "alpha": {
+          "passed": 30,
+          "total": 36
+        },
+        "beta": {
+          "passed": 33,
+          "total": 36
+        }
+      },
+      "preserve_material": {
+        "alpha": {
+          "passed": 36,
+          "total": 36
+        },
+        "beta": {
+          "passed": 36,
+          "total": 36
+        }
+      }
+    },
+    "domains": {
+      "coding": {
+        "alpha": {
+          "passed": 10,
+          "total": 12
+        },
+        "beta": {
+          "passed": 10,
+          "total": 12
+        }
+      },
+      "data_analysis": {
+        "alpha": {
+          "passed": 12,
+          "total": 12
+        },
+        "beta": {
+          "passed": 12,
+          "total": 12
+        }
+      },
+      "documentation": {
+        "alpha": {
+          "passed": 12,
+          "total": 12
+        },
+        "beta": {
+          "passed": 12,
+          "total": 12
+        }
+      },
+      "operations": {
+        "alpha": {
+          "passed": 10,
+          "total": 12
+        },
+        "beta": {
+          "passed": 11,
+          "total": 12
+        }
+      },
+      "scheduling": {
+        "alpha": {
+          "passed": 10,
+          "total": 12
+        },
+        "beta": {
+          "passed": 12,
+          "total": 12
+        }
+      },
+      "writing": {
+        "alpha": {
+          "passed": 12,
+          "total": 12
+        },
+        "beta": {
+          "passed": 12,
+          "total": 12
+        }
+      }
+    },
+    "runs": {
+      "1": {
+        "alpha": {
+          "passed": 21,
+          "total": 24
+        },
+        "beta": {
+          "passed": 22,
+          "total": 24
+        }
+      },
+      "2": {
+        "alpha": {
+          "passed": 23,
+          "total": 24
+        },
+        "beta": {
+          "passed": 24,
+          "total": 24
+        }
+      },
+      "3": {
+        "alpha": {
+          "passed": 22,
+          "total": 24
+        },
+        "beta": {
+          "passed": 23,
+          "total": 24
+        }
+      }
+    },
+    "paired_case_runs": {
+      "both_pass": 66,
+      "both_fail": 3,
+      "candidate_only_pass": 3
+    },
+    "case_wins": {
+      "tie": 22,
+      "candidate": 2
+    },
+    "failure_types": {
+      "alpha": {
+        "irrelevant_details": 6,
+        "missing_material": 0,
+        "unsupported_claims": 0,
+        "format_error": 0
+      },
+      "beta": {
+        "irrelevant_details": 3,
+        "missing_material": 0,
+        "unsupported_claims": 0,
+        "format_error": 0
+      }
+    }
+  },
+  "per_case": [
+    {
+      "case_id": "V01",
+      "domain": "coding",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V02",
+      "domain": "coding",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 1,
+        "total": 3
+      },
+      "beta": {
+        "passed": 1,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V03",
+      "domain": "coding",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V04",
+      "domain": "coding",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V05",
+      "domain": "documentation",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V06",
+      "domain": "documentation",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V07",
+      "domain": "documentation",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V08",
+      "domain": "documentation",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V09",
+      "domain": "writing",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V10",
+      "domain": "writing",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V11",
+      "domain": "writing",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V12",
+      "domain": "writing",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V13",
+      "domain": "scheduling",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 1,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V14",
+      "domain": "scheduling",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V15",
+      "domain": "scheduling",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V16",
+      "domain": "scheduling",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V17",
+      "domain": "data_analysis",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V18",
+      "domain": "data_analysis",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V19",
+      "domain": "data_analysis",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V20",
+      "domain": "data_analysis",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V21",
+      "domain": "operations",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V22",
+      "domain": "operations",
+      "category": "omit_irrelevant",
+      "alpha": {
+        "passed": 1,
+        "total": 3
+      },
+      "beta": {
+        "passed": 2,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V23",
+      "domain": "operations",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    {
+      "case_id": "V24",
+      "domain": "operations",
+      "category": "preserve_material",
+      "alpha": {
+        "passed": 3,
+        "total": 3
+      },
+      "beta": {
+        "passed": 3,
+        "total": 3
+      }
+    }
+  ],
+  "responses": [
+    {
+      "id": "R1S01",
+      "case_id": "V14",
+      "variant": "beta",
+      "run": 1,
+      "response": "The agenda totals 60 minutes: 5 for goals, 20 for the proposal, 25 for discussion, and 10 reserved for questions.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S01",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Agenda totals 60 minutes, including 10 for questions."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits room-reservation, call-background, and calendar-entry notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S02",
+      "case_id": "V23",
+      "variant": "beta",
+      "run": 1,
+      "response": "Staging was rolled back to the prior release, and the checkout smoke check passes. The rollback cleared all three unsaved staging checkout sessions; those testers must restart their sessions.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S02",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Staging rolled back to prior release; checkout smoke check passes."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "All three unsaved staging checkout sessions cleared; testers must restart."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Repeatedly scopes rollback and sessions to staging."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S03",
+      "case_id": "V19",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The experiment did not establish that the new welcome email increases seven-day activation. Activation was 40.2% versus 40.0% in control: a 0.2-percentage-point difference, with a 95% confidence interval from −1.3 to +1.7 percentage points.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S03",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States the experiment did not establish increased activation."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Reports a 0.2-percentage-point difference and 95% interval −1.3 to +1.7 points."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Does not claim zero effect; reports uncertainty spanning both directions."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S04",
+      "case_id": "V01",
+      "variant": "beta",
+      "run": 1,
+      "response": "Fixed invoice filtering for customer names containing apostrophes using the existing parameter-binding helper. The apostrophe regression test and invoice-list test suite pass.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S04",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Apostrophe filtering uses the existing parameter-binding helper; both relevant tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits dependency, logo, and footer notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S05",
+      "case_id": "V09",
+      "variant": "beta",
+      "run": 1,
+      "response": "The invitation draft is ready with a friendly opening. Tuesday at 14:00 and Room Cedar appear in a separate sentence so the time and location are easy to find.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S05",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Draft has a friendly opening and places Tuesday 14:00 and Room Cedar in a separate sentence."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits social-post, slide-deck, and headshot notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S06",
+      "case_id": "V08",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Authentication and pagination are updated for version 3, and their sample requests succeeded against the test endpoint. The rate-limit section remains on version 2 because version 3 limits have not been supplied; its examples remain unvalidated.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S06",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Authentication and pagination updated for version 3; their sample requests succeeded."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Rate-limit section remains on version 2 because version 3 limits were not supplied."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly states rate-limit examples remain unvalidated."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S07",
+      "case_id": "V11",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The revision includes all four named customer benefits, but at 176 words it exceeds the under-150-word limit. A compliant version is still outstanding.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S07",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "All four named customer benefits are included."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States 176 words and the unmet under-150-word limit."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "A compliant version is explicitly still outstanding."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S08",
+      "case_id": "V15",
+      "variant": "beta",
+      "run": 1,
+      "response": "A suitable slot was identified for tomorrow, 15:00–15:30. Calendar access is unavailable, so the call is not booked and no invitation has been sent.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S08",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies tomorrow 15:00–15:30 as a suitable slot."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Calendar access is unavailable; call is not booked and invitation not sent."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly withholds booking and invitation claims."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S09",
+      "case_id": "V19",
+      "variant": "beta",
+      "run": 1,
+      "response": "The experiment did not establish an increase in seven-day activation. Activation was 40.2% with the new email versus 40.0% in control, a difference of 0.2 percentage points (95% confidence interval: −1.3 to +1.7 percentage points).",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S09",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States the experiment did not establish increased activation."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Reports a 0.2-percentage-point difference and 95% interval −1.3 to +1.7 points."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Does not claim zero effect; reports uncertainty spanning both directions."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S10",
+      "case_id": "V20",
+      "variant": "beta",
+      "run": 1,
+      "response": "The mean resolution time was 6.4 hours for 90 of the 120 tickets closed in April. The other 30 lack opening timestamps, so the average across all April closures could not be calculated.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S10",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports a 6.4-hour mean for the 90 calculable tickets."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Other 30 of 120 lack opening timestamps; all-ticket mean cannot be calculated."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Scopes 6.4 hours to the 90 tickets rather than all April closures."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S11",
+      "case_id": "V12",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The promise of weekend phone support is unsupported: the supplied product notes contain no support-hours information. Offline access and automatic backup are supported; no other unsupported claims were found.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S11",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies the weekend phone-support promise as unsupported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Explains that the supplied notes contain no support-hours information."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Identifies the unsupported claim and additionally reports no others were found."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S12",
+      "case_id": "V14",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The one-hour design review agenda is ready: 5 minutes for goals, 20 for the proposal, 25 for discussion, and 10 for questions. Total: 60 minutes.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S12",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Agenda totals 60 minutes, including 10 for questions."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits room-reservation, call-background, and calendar-entry notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S13",
+      "case_id": "V04",
+      "variant": "beta",
+      "run": 1,
+      "response": "Plus-sign email login is fixed, and its regression test passes. Expired-password login still returns a generic server error, and its test fails. Work stopped after identifying that the identity-service response lacks the expected error code.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S13",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Plus-sign login is fixed; expired-password login still returns a generic server error."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Expired-password test fails; identity-service response lacks the expected error code."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly distinguishes the unresolved expired-password failure."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S14",
+      "case_id": "V16",
+      "variant": "alpha",
+      "run": 1,
+      "response": "There is no 60-minute slot next week when all five panelists are available. The closest option is Thursday 13:00–14:00, which accommodates four; Nia is unavailable. It is the only supplied window accommodating four panelists.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S14",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports no 60-minute slot next week accommodates all five."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Closest option is Thursday 13:00–14:00 for four; Nia is unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Labels fallback as four-person availability and refers to supplied windows."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S15",
+      "case_id": "V16",
+      "variant": "beta",
+      "run": 1,
+      "response": "No 60-minute slot next week accommodates all five panelists. The closest option is Thursday 13:00–14:00, which works for four; Nia is unavailable. It is the only supplied window accommodating four.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S15",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports no 60-minute slot next week accommodates all five."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Closest option is Thursday 13:00–14:00 for four; Nia is unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Labels fallback as four-person availability and refers to supplied windows."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S16",
+      "case_id": "V09",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The revised invitation is ready as a draft. It uses a friendly opening and puts Tuesday at 14:00 and Room Cedar in a separate sentence for easy reference.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S16",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Draft has a friendly opening and places Tuesday 14:00 and Room Cedar in a separate sentence."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits social-post, slide-deck, and headshot notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S17",
+      "case_id": "V18",
+      "variant": "beta",
+      "run": 1,
+      "response": "Harbor had the highest March sales in the supplied table, at 42,000 units.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S17",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Harbor has the highest March sales at 42,000 units."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits annual ranking, chart colors, and staffing notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S18",
+      "case_id": "V22",
+      "variant": "beta",
+      "run": 1,
+      "response": "The practice failover checklist is ready and covers every supplied procedure step: announcing the exercise, checking replication, switching the practice endpoint, validating it, and restoring it. No live failover was performed.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S18",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Checklist covers every supplied procedure step and lists those steps."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded live-failover note."
+          }
+        ],
+        "irrelevant_details": [
+          "No live failover was performed."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Includes a note explicitly excluded by criterion 2."
+      }
+    },
+    {
+      "id": "R1S19",
+      "case_id": "V10",
+      "variant": "beta",
+      "run": 1,
+      "response": "The FAQ answer now describes the same three account-setup steps in plain language. The editor confirmed that the steps remain accurate.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S19",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Same three setup steps now use plain language; editor confirmed retained accuracy."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits comprehension-study, experiment, and newsletter notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S20",
+      "case_id": "V01",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Invoice filtering now uses the existing parameter-binding helper to handle customer names containing apostrophes. The apostrophe regression test and invoice-list test suite pass.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S20",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Apostrophe filtering uses the existing parameter-binding helper; both relevant tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits dependency, logo, and footer notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S21",
+      "case_id": "V04",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Plus-sign email login is fixed, and its regression test passes. Expired-password login still returns a generic server error, and its test fails. Work stopped after identifying that the identity-service response lacks the expected error code.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S21",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Plus-sign login is fixed; expired-password login still returns a generic server error."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Expired-password test fails; identity-service response lacks the expected error code."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly distinguishes the unresolved expired-password failure."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S22",
+      "case_id": "V10",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The FAQ answer now explains the same three account setup steps in plain language. The editor confirmed that the steps remain accurate.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S22",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Same three setup steps now use plain language; editor confirmed retained accuracy."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits comprehension-study, experiment, and newsletter notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S23",
+      "case_id": "V02",
+      "variant": "beta",
+      "run": 1,
+      "response": "The orders search empty-state message now says “No matching orders.” The component render check confirms the text; the full integration suite was not run.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S23",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States the message is “No matching orders” and the component render check confirms it."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded unrun full integration suite."
+          }
+        ],
+        "irrelevant_details": [
+          "the full integration suite was not run."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Includes a note explicitly excluded by criterion 2."
+      }
+    },
+    {
+      "id": "R1S24",
+      "case_id": "V18",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Harbor had the highest March sales: 42,000 units.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S24",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Harbor has the highest March sales at 42,000 units."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits annual ranking, chart colors, and staffing notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S25",
+      "case_id": "V17",
+      "variant": "beta",
+      "run": 1,
+      "response": "Of 80 respondents, 35 selected sandwiches, 28 selected salads, and 17 selected soup.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S25",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports sandwiches 35, salads 28, and soup 17."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits forecasts, demographics, and survey-theme notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S26",
+      "case_id": "V13",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Recommend Wednesday 10:00–10:45. All six participants are available then; every other supplied window excludes at least one participant. No calendar event has been created.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S26",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Recommends Wednesday 10:00–10:45 because all six participants are available."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded calendar-event creation note."
+          }
+        ],
+        "irrelevant_details": [
+          "No calendar event has been created."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Includes a note explicitly excluded by criterion 2."
+      }
+    },
+    {
+      "id": "R1S27",
+      "case_id": "V22",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The practice failover checklist is ready. It covers every supplied procedure step: announcing the exercise, checking replication, switching the practice endpoint, validating it, and restoring it. No live failover was performed.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S27",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Checklist covers every supplied procedure step and lists those steps."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded live-failover note."
+          }
+        ],
+        "irrelevant_details": [
+          "No live failover was performed."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Includes a note explicitly excluded by criterion 2."
+      }
+    },
+    {
+      "id": "R1S28",
+      "case_id": "V05",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The onboarding guide’s installation command now uses `npm ci`. The documentation check passes.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S28",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Installation command now uses npm ci; documentation check passes."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits screenshots, appendix, and release-announcement notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S29",
+      "case_id": "V17",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Of 80 respondents, 35 selected sandwiches, 28 selected salads, and 17 selected soup. Each respondent selected exactly one option.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S29",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports sandwiches 35, salads 28, and soup 17."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits forecasts, demographics, and survey-theme notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S30",
+      "case_id": "V03",
+      "variant": "beta",
+      "run": 1,
+      "response": "CSV export is implemented on the reports page, and unit tests pass. Browser download verification remains incomplete: the browser test could not start because the required browser executable is missing.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S30",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "CSV export is implemented and unit tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Browser download verification remains incomplete because the browser executable is missing."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicit browser-verification gap prevents a full-completion or verified-download claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S31",
+      "case_id": "V23",
+      "variant": "alpha",
+      "run": 1,
+      "response": "Staging was rolled back to the prior release, and the checkout smoke check passes. The rollback cleared all three unsaved staging checkout sessions; those testers must restart their sessions.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S31",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Staging rolled back to prior release; checkout smoke check passes."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "All three unsaved staging checkout sessions cleared; testers must restart."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Repeatedly scopes rollback and sessions to staging."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S32",
+      "case_id": "V24",
+      "variant": "beta",
+      "run": 1,
+      "response": "The archive upload completed, but checksum verification is blocked by an authorization error when reading the uploaded object. The local checksum is available; no remote checksum was obtained, so matching contents remain unconfirmed.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S32",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Archive upload completed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Checksum verification blocked by authorization error reading the uploaded object."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "No remote checksum obtained; matching contents remain unconfirmed without asserting corruption."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S33",
+      "case_id": "V20",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The mean resolution time is 6.4 hours for the 90 April-closed tickets with opening timestamps. The other 30 of 120 tickets lack opening timestamps, so the average across every ticket could not be calculated.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R1S33",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports a 6.4-hour mean for the 90 calculable tickets."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Other 30 of 120 lack opening timestamps; all-ticket mean cannot be calculated."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Scopes 6.4 hours to the 90 tickets rather than all April closures."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S34",
+      "case_id": "V06",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The approved definition of “workspace” was added to the glossary and linked from its first occurrence in the introduction. Both links resolve.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S34",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Approved workspace definition was added and linked; does not invent definition text."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits revision-history design, translations, and cover notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S35",
+      "case_id": "V02",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The orders search empty-state message now reads “No matching orders.” The component render check confirms the requested text; the full integration suite was not run.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S35",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States the message is “No matching orders” and the component render check confirms it."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded unrun full integration suite."
+          }
+        ],
+        "irrelevant_details": [
+          "the full integration suite was not run."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Includes a note explicitly excluded by criterion 2."
+      }
+    },
+    {
+      "id": "R1S36",
+      "case_id": "V24",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The archive upload completed, but checksum verification is blocked: reading the uploaded object returned an authorization error. The local checksum is available; no remote checksum was obtained, so matching contents remain unconfirmed.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S36",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Archive upload completed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Checksum verification blocked by authorization error reading the uploaded object."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "No remote checksum obtained; matching contents remain unconfirmed without asserting corruption."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S37",
+      "case_id": "V06",
+      "variant": "beta",
+      "run": 1,
+      "response": "The approved definition of “workspace” was added to the glossary and linked from its first occurrence in the introduction. Both links resolve.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S37",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Approved workspace definition was added and linked; does not invent definition text."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits revision-history design, translations, and cover notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S38",
+      "case_id": "V07",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The runbook lacks safe retry instructions, including whether retrying duplicates records. Failure detection is documented through the dashboard alert, and recovery confirmation through the processed-record count.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S38",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies safe retry instructions, including duplication information, as missing."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Documents dashboard-alert detection and processed-record recovery confirmation separately."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Describes absent guidance without asserting whether retries actually duplicate records."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S39",
+      "case_id": "V07",
+      "variant": "beta",
+      "run": 1,
+      "response": "Safe retry instructions are missing: the runbook does not explain whether retrying duplicates records or how to retry safely. Failure detection is documented through the dashboard alert, and recovery confirmation through the processed-record count.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S39",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies safe retry instructions, including duplication information, as missing."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Documents dashboard-alert detection and processed-record recovery confirmation separately."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Describes absent guidance without asserting whether retries actually duplicate records."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S40",
+      "case_id": "V21",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The nightly backup job completed successfully at 02:14 and produced the expected backup artifact.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S40",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Backup completed successfully at 02:14 and produced the expected artifact."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits restart, firewall, and wallpaper notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S41",
+      "case_id": "V08",
+      "variant": "beta",
+      "run": 1,
+      "response": "The authentication and pagination sections are updated for version 3, and their sample requests succeeded against the test endpoint. The rate-limit section remains on version 2 because version 3 limits have not been supplied; its examples remain unvalidated.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S41",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Authentication and pagination updated for version 3; their sample requests succeeded."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Rate-limit section remains on version 2 because version 3 limits were not supplied."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly states rate-limit examples remain unvalidated."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S42",
+      "case_id": "V03",
+      "variant": "alpha",
+      "run": 1,
+      "response": "The CSV export handler and download button are implemented, and unit tests pass. Browser download verification remains blocked because the required browser executable is absent; no browser download was observed.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R1S42",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "CSV export is implemented and unit tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Browser download verification remains incomplete because the browser executable is missing."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicit browser-verification gap prevents a full-completion or verified-download claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S43",
+      "case_id": "V15",
+      "variant": "alpha",
+      "run": 1,
+      "response": "A suitable slot was identified for tomorrow, 15:00–15:30. Calendar access is unavailable, so the call has not been booked and Maya has not been sent an invitation.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S43",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies tomorrow 15:00–15:30 as a suitable slot."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Calendar access is unavailable; call is not booked and invitation not sent."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly withholds booking and invitation claims."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S44",
+      "case_id": "V12",
+      "variant": "beta",
+      "run": 1,
+      "response": "The promise of weekend phone support is unsupported: the supplied product notes contain no support-hours information. Offline access and automatic backup are supported; no other unsupported claims were found.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S44",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies the weekend phone-support promise as unsupported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Explains that the supplied notes contain no support-hours information."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Identifies the unsupported claim and additionally reports no others were found."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S45",
+      "case_id": "V05",
+      "variant": "beta",
+      "run": 1,
+      "response": "The onboarding guide’s installation command now uses `npm ci`. The documentation check passes.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R1S45",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Installation command now uses npm ci; documentation check passes."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits screenshots, appendix, and release-announcement notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S46",
+      "case_id": "V11",
+      "variant": "beta",
+      "run": 1,
+      "response": "The revision includes all four named customer benefits, but at 176 words it exceeds the under-150-word limit. A compliant version is still needed.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R1S46",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "All four named customer benefits are included."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States 176 words and the unmet under-150-word limit."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "A compliant version is explicitly still needed."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S47",
+      "case_id": "V13",
+      "variant": "beta",
+      "run": 1,
+      "response": "Recommend Wednesday 10:00–10:45: all six participants are available, and every other supplied window excludes at least one participant.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R1S47",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Recommends Wednesday 10:00–10:45 because all six participants are available."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits event creation, catering, and weekly-meeting notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R1S48",
+      "case_id": "V21",
+      "variant": "beta",
+      "run": 1,
+      "response": "Yes. The nightly backup job completed successfully at 02:14 and produced its expected backup artifact.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R1S48",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Backup completed successfully at 02:14 and produced the expected artifact."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Omits restart, firewall, and wallpaper notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Satisfies every case criterion; no material omission or unsupported claim."
+      }
+    },
+    {
+      "id": "R2S01",
+      "case_id": "V14",
+      "variant": "beta",
+      "run": 2,
+      "response": "The one-hour design review agenda is ready: 5 minutes for goals, 20 for the proposal, 25 for discussion, and 10 for questions. Total: 60 minutes.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S01",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Agenda totals 60 minutes and reserves 10 for questions."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only agenda timing is reported; no room, background, or calendar notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S02",
+      "case_id": "V11",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The revision includes all four named customer benefits but is 176 words, so it does not meet the under-150-word requirement. It still needs shortening.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S02",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Includes all four named customer benefits."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States 176 words and does not meet under-150 requirement."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "It still needs shortening explicitly leaves compliant delivery outstanding."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S03",
+      "case_id": "V17",
+      "variant": "beta",
+      "run": 2,
+      "response": "Of 80 respondents, 35 selected sandwiches, 28 selected salads, and 17 selected soup.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S03",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "35 sandwiches, 28 salads, and 17 soup are all reported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only valid counts and total are included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S04",
+      "case_id": "V03",
+      "variant": "alpha",
+      "run": 2,
+      "response": "CSV export is implemented on the reports page, and unit tests pass. Browser download verification remains blocked because the required browser executable is missing.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S04",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "CSV export is implemented and unit tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Browser download verification remains blocked because executable is missing."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Verification is explicitly blocked, with no claim of full completion."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S05",
+      "case_id": "V05",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The onboarding guide’s installation command now uses `npm ci`. The documentation check passes.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S05",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Installation command now uses npm ci."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only corrected command and documentation check are reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S06",
+      "case_id": "V16",
+      "variant": "beta",
+      "run": 2,
+      "response": "There is no 60-minute slot next week when all five panelists are available. The closest option is Thursday 13:00–14:00, the only window accommodating four; Nia is unavailable.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S06",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States no 60-minute slot works for all five next week."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Closest option is Thursday 13:00-14:00 for four; Nia unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Fallback explicitly accommodates four; conclusion stays within requested search."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S07",
+      "case_id": "V02",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The orders search empty-state message now says “No matching orders.” The component render check confirms the requested text.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S07",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Message now says No matching orders; render check confirms."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only text change and component check are included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S08",
+      "case_id": "V04",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Plus-sign email login is fixed, and its regression test passes. Expired-password login still returns a generic server error, and its test fails. Work stopped after identifying that the identity-service response lacks the expected error code; that response handling remains unresolved.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S08",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Plus-sign login fixed; expired-password login still errors."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Expired-password test fails; identity-service response lacks expected error code."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Expired-password response handling explicitly remains unresolved."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S09",
+      "case_id": "V09",
+      "variant": "beta",
+      "run": 2,
+      "response": "The warmer invitation draft is ready, with a friendly opening and the details in a separate sentence: Tuesday at 14:00 in Room Cedar.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S09",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Warmer draft has friendly opening and separate time/location sentence."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only invitation draft and event details are included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S10",
+      "case_id": "V23",
+      "variant": "beta",
+      "run": 2,
+      "response": "Staging was rolled back to the prior release, and the checkout smoke check passes. The rollback cleared all three unsaved staging checkout sessions; those testers must restart their sessions.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S10",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Staging rolled back to prior release; smoke check passes."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "All three unsaved staging checkout sessions cleared; testers must restart."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Both rollback and cleared sessions explicitly scoped to staging."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S11",
+      "case_id": "V15",
+      "variant": "beta",
+      "run": 2,
+      "response": "A suitable slot is available tomorrow, 15:00–15:30. Calendar access is unavailable, so the call has not been booked and Maya has not been sent an invitation.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S11",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Suitable tomorrow slot identified as 15:00-15:30."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Calendar unavailable; call not booked and invitation not sent."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "No booking or invitation is represented as confirmed."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S12",
+      "case_id": "V20",
+      "variant": "beta",
+      "run": 2,
+      "response": "The mean resolution time was 6.4 hours for 90 of the 120 tickets closed in April. The remaining 30 lack opening timestamps, so the mean across all 120 tickets could not be calculated.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S12",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "6.4-hour mean explicitly applies to 90 of 120 tickets."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "30 lack opening timestamps; all-120 mean could not be calculated."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "6.4 hours is explicitly limited to 90 tickets."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S13",
+      "case_id": "V12",
+      "variant": "beta",
+      "run": 2,
+      "response": "The promise of weekend phone support is unsupported: the supplied product notes contain no support-hours information. The offline access and automatic backup claims are supported; no other unsupported claims were found.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S13",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Weekend phone support promise identified as unsupported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Notes contain no support-hours information, establishing evidence gap."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Specific unsupported claim identified; other claims also distinguished."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S14",
+      "case_id": "V23",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Staging was rolled back to the prior release, and the checkout smoke check passes. The rollback cleared all three unsaved staging checkout sessions; those testers must restart their sessions. Production was outside the rollback scope.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S14",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Staging rolled back to prior release; checkout smoke check passes."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "All three unsaved staging sessions cleared; testers must restart."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Staging scope explicit; production outside rollback scope."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S15",
+      "case_id": "V06",
+      "variant": "beta",
+      "run": 2,
+      "response": "The approved definition of “workspace” is in the glossary and linked from its first occurrence in the introduction. Both links resolve.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S15",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Approved workspace definition added to glossary without inventing definition text."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only glossary addition and working introductory links are reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S16",
+      "case_id": "V18",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Harbor had the highest March sales, with 42,000 units.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S16",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Harbor highest with 42,000 units in March."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only requested March leader and total are included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S17",
+      "case_id": "V21",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The nightly backup completed successfully at 02:14 and produced the expected backup artifact.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S17",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Backup completed successfully and produced expected artifact."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only backup result, artifact, and optional finish time are reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S18",
+      "case_id": "V11",
+      "variant": "beta",
+      "run": 2,
+      "response": "The revision includes all four named customer benefits, but at 176 words it exceeds the under-150-word requirement. A compliant version is still outstanding.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S18",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "All four named benefits included."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "176 words exceeds under-150 requirement."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "A compliant version is still outstanding."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S19",
+      "case_id": "V01",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Invoice filtering now uses the existing parameter-binding helper, fixing crashes for customer names containing apostrophes. The apostrophe regression test and invoice-list test suite pass.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S19",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Apostrophe crashes fixed using parameter binding; both relevant tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "No dependency, logo, or footer notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S20",
+      "case_id": "V16",
+      "variant": "alpha",
+      "run": 2,
+      "response": "There is no 60-minute slot next week when all five panelists are available. The closest option is Thursday 13:00–14:00, when four can attend; Nia is unavailable. It is the only supplied window accommodating four panelists.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S20",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States no 60-minute slot for all five next week."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Thursday 13:00-14:00 is closest; four attend and Nia unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Only supplied window for four; no all-five success claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S21",
+      "case_id": "V14",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The one-hour design review agenda is ready: 5 minutes for goals, 20 for the proposal, 25 for discussion, and 10 for questions—60 minutes total.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S21",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Agenda totals 60 minutes and reserves 10 for questions."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only agenda allocations and total are included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S22",
+      "case_id": "V06",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The approved definition of “workspace” is in the glossary and linked from its first occurrence in the introduction. Both links resolve.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S22",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Approved workspace definition added; no definition text invented."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only glossary addition and resolving introductory links reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S23",
+      "case_id": "V08",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Authentication and pagination are updated for API version 3, and their sample requests succeeded against the test endpoint. The rate-limit section remains on version 2 pending the version 3 limits; its examples remain unvalidated.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S23",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Authentication and pagination updated to v3; their sample requests succeeded."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Rate-limit section remains v2 pending v3 limits."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Rate-limit examples explicitly unvalidated; successful tests limited to other sections."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S24",
+      "case_id": "V07",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The runbook documents failure detection through the dashboard alert and recovery confirmation through the processed-record count. It lacks instructions on whether retries duplicate records and how to retry safely.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S24",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Lacks instructions about duplicate records and retrying safely."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Detection uses dashboard alert; recovery uses processed-record count; retry instructions absent."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Only missing instructions asserted, not actual retry safety."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S25",
+      "case_id": "V19",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The experiment did not establish an increase in seven-day activation. Activation was 40.2% with the new email versus 40.0% in control: a difference of 0.2 percentage points, with a 95% confidence interval of −1.3 to +1.7 percentage points.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S25",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Experiment did not establish increased seven-day activation."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Observed 0.2-point difference; 95% interval -1.3 to +1.7 points."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Non-establishment and two-sided interval do not assert zero effect."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S26",
+      "case_id": "V20",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The mean resolution time was 6.4 hours for the 90 tickets with opening timestamps. The mean across all 120 tickets could not be calculated because 30 lacked opening timestamps.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S26",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "6.4 hours for the 90 tickets with opening timestamps."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "30 lacked opening timestamps; all-120 mean could not be calculated."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "6.4-hour result explicitly limited to calculable tickets."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S27",
+      "case_id": "V21",
+      "variant": "beta",
+      "run": 2,
+      "response": "The nightly backup completed successfully at 02:14 and produced the expected backup artifact.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S27",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Backup completed successfully at 02:14 and produced expected artifact."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only backup outcome and optional completion time included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S28",
+      "case_id": "V24",
+      "variant": "beta",
+      "run": 2,
+      "response": "The archive upload completed, but checksum verification is blocked by an authorization error when reading the uploaded object. The local checksum is available; without a remote checksum, matching contents remain unconfirmed.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S28",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Archive upload completed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Authorization error reading uploaded object blocks checksum verification."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "No remote checksum; matching contents unconfirmed, with no corruption claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S29",
+      "case_id": "V02",
+      "variant": "beta",
+      "run": 2,
+      "response": "The orders search empty message now reads “No matching orders”. The component render check confirms the requested text.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S29",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Empty message now reads No matching orders; render check confirms."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only text change and render check included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S30",
+      "case_id": "V18",
+      "variant": "beta",
+      "run": 2,
+      "response": "Harbor had the highest March sales, with 42,000 units.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S30",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Harbor highest March sales at 42,000 units."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only requested branch and March total included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S31",
+      "case_id": "V04",
+      "variant": "beta",
+      "run": 2,
+      "response": "Login with plus-sign email addresses is fixed, and its regression test passes. Expired-password login still returns a generic server error, and its test fails. Work stopped after identifying that the identity-service response lacks the expected error code.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S31",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Plus-sign login fixed; expired-password login still errors."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Expired-password test fails; identity-service response lacks expected code."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicit unresolved expired-password error prevents collective success claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S32",
+      "case_id": "V22",
+      "variant": "beta",
+      "run": 2,
+      "response": "The practice failover checklist is ready and covers every supplied procedure step: announce the exercise, check replication, switch the practice endpoint, validate it, and restore it.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S32",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Checklist covers every supplied procedure step; all five listed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only checklist completeness and steps reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S33",
+      "case_id": "V15",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Tomorrow’s 15:00–15:30 slot fits the supplied availability. Booking is blocked because calendar access is unavailable; no event was created and no invitation was sent.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S33",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Tomorrow 15:00-15:30 fits supplied availability."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Calendar unavailable; no event created and no invitation sent."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Booking explicitly blocked; no confirmed appointment implied."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S34",
+      "case_id": "V09",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The warmer invitation draft is ready. It opens with a friendly greeting and puts Tuesday at 14:00 and Room Cedar in a separate sentence for easy reference.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S34",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Warmer draft with friendly greeting; time/location separate for easy reference."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only invitation editorial changes and event details included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S35",
+      "case_id": "V17",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Of 80 respondents, 35 selected sandwiches, 28 selected salads, and 17 selected soup.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S35",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "35 sandwiches, 28 salads, 17 soup among 80 respondents."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only counts and optional total included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S36",
+      "case_id": "V13",
+      "variant": "beta",
+      "run": 2,
+      "response": "Recommend Wednesday 10:00–10:45. All six participants are available then; every other supplied window excludes at least one participant.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S36",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Wednesday 10:00-10:45 recommended; all six available."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only recommendation and supplied availability comparison included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S37",
+      "case_id": "V19",
+      "variant": "beta",
+      "run": 2,
+      "response": "The experiment did not establish an increase in seven-day activation. Activation was 40.2% with the new email versus 40.0% in control: a difference of 0.2 percentage points, with a 95% confidence interval from −1.3 to +1.7 percentage points.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R2S37",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Experiment did not establish increased seven-day activation."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "0.2-point difference; 95% interval from -1.3 to +1.7 points."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Interval and non-establishment leave effect uncertain, not proved zero."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S38",
+      "case_id": "V13",
+      "variant": "alpha",
+      "run": 2,
+      "response": "Recommend Wednesday 10:00–10:45: all six participants are available, and every other supplied window excludes someone. No calendar event has been created.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R2S38",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Wednesday 10:00-10:45 recommended because all six available."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the excluded event-creation note: No calendar event has been created."
+          }
+        ],
+        "irrelevant_details": [
+          "No calendar event has been created."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Adds the event-creation note explicitly excluded by criterion 2."
+      }
+    },
+    {
+      "id": "R2S39",
+      "case_id": "V03",
+      "variant": "beta",
+      "run": 2,
+      "response": "CSV export is implemented with a download button, and unit tests pass. Browser download verification remains incomplete: the browser test could not start because the required browser executable is missing.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S39",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "CSV export with download button implemented; unit tests pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Browser test could not start because executable missing; verification incomplete."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Browser verification explicitly incomplete, not asserted as successful."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S40",
+      "case_id": "V01",
+      "variant": "beta",
+      "run": 2,
+      "response": "Invoice filtering now handles customer names containing apostrophes using the existing parameter-binding helper. The apostrophe regression test and invoice-list test suite pass.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R2S40",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Apostrophe filtering handled using parameter binding; regression and suite pass."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "No dependency, logo, or footer notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S41",
+      "case_id": "V10",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The FAQ answer now uses plain language for the same three account-setup steps. The editor confirmed that the steps remain accurate.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S41",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Plain language for same three steps; editor confirmed accuracy."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only revision and retained accuracy reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S42",
+      "case_id": "V24",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The archive upload completed. Checksum verification is blocked by an authorization error when reading the uploaded object; no remote checksum was obtained, so matching contents remain unconfirmed.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S42",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Archive upload completed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Authorization error reading uploaded object blocks checksum verification."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "No remote checksum; matching contents unconfirmed, not claimed corrupt or confirmed."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S43",
+      "case_id": "V10",
+      "variant": "beta",
+      "run": 2,
+      "response": "The FAQ answer now explains the same three account setup steps in plain language. The editor confirmed that the steps remain accurate.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S43",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Same three setup steps in plain language; editor confirmed accuracy."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only editorial revision and accuracy check included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S44",
+      "case_id": "V22",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The practice failover checklist covers every supplied procedure step: announce the exercise, check replication, switch the practice endpoint, validate it, and restore it.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R2S44",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Checklist covers every supplied procedure step; all five enumerated."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only checklist coverage and procedure steps reported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S45",
+      "case_id": "V05",
+      "variant": "beta",
+      "run": 2,
+      "response": "The installation command in the onboarding guide now uses `npm ci`. The documentation check passes.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S45",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Onboarding installation command now uses npm ci."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Only corrected command and passing documentation check included."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S46",
+      "case_id": "V07",
+      "variant": "beta",
+      "run": 2,
+      "response": "The runbook documents failure detection through the dashboard alert and recovery confirmation through the processed-record count. It lacks safe retry instructions, including whether retrying duplicates records.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S46",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Safe retry instructions, including duplicate-record behavior, are missing."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Dashboard detection and processed-count confirmation documented; retry guidance absent."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Claim concerns missing instructions, not known retry behavior."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S47",
+      "case_id": "V08",
+      "variant": "beta",
+      "run": 2,
+      "response": "The authentication and pagination sections now cover version 3, and their sample requests succeeded against the test endpoint. The rate-limit section remains on version 2 because version 3 limits have not been supplied; its examples remain unvalidated.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R2S47",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Authentication and pagination now v3; their sample requests succeeded."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Rate-limit section stays v2 because v3 limits not supplied."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Rate-limit examples explicitly unvalidated; success limited to other sections."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R2S48",
+      "case_id": "V12",
+      "variant": "alpha",
+      "run": 2,
+      "response": "The promise of weekend phone support is unsupported: the supplied product notes contain no support-hours information. Offline access and automatic backup are supported; no other unsupported claims were found.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R2S48",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Weekend phone support promise identified as unsupported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Supplied notes contain no support-hours information; evidence gap explicit."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Specific unsupported claim identified; other claims also marked supported."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Meets every corresponding criterion."
+      }
+    },
+    {
+      "id": "R3S01",
+      "case_id": "V02",
+      "variant": "beta",
+      "run": 3,
+      "response": "The orders search empty-state message now says “No matching orders.” The component render check confirms the text; the full integration suite was not run.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S01",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that the empty-state message now says No matching orders."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded note: the full integration suite was not run."
+          }
+        ],
+        "irrelevant_details": [
+          "the full integration suite was not run"
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Correct message reported, but includes the explicitly excluded full-integration-suite note."
+      }
+    },
+    {
+      "id": "R3S02",
+      "case_id": "V14",
+      "variant": "beta",
+      "run": 3,
+      "response": "The one-hour design review agenda is ready: 5 minutes for goals, 20 for the proposal, 25 for discussion, and 10 for questions—60 minutes total.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S02",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports a ready agenda totaling 60 minutes with 10 minutes for questions."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no room-reservation, call-background, or calendar-entry notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S03",
+      "case_id": "V06",
+      "variant": "beta",
+      "run": 3,
+      "response": "The approved definition of “workspace” was added to the glossary and linked from its first occurrence in the introduction. Both links resolve.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S03",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports addition of the approved workspace definition and working introductory link without inventing definition text."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no revision-history, translation, or cover-illustration notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S04",
+      "case_id": "V18",
+      "variant": "beta",
+      "run": 3,
+      "response": "Harbor had the highest March sales, at 42,000 units.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S04",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies Harbor as highest for March with 42,000 units."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no annual-ranking, chart-color, or staffing-recommendation notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S05",
+      "case_id": "V03",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The CSV export handler and download button are implemented, and unit tests pass. Browser download verification remains incomplete: the browser test could not start because the required browser executable is absent, so no download was observed.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S05",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports the implemented export handler and download button, with passing unit tests."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Explicitly says browser download verification remains incomplete because the required browser executable is absent or missing."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Describes browser verification as incomplete and makes no verified-download or full-completion claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S06",
+      "case_id": "V10",
+      "variant": "beta",
+      "run": 3,
+      "response": "The FAQ answer now uses common words to explain the same three account-setup steps. The editor confirmed that the steps remain accurate.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S06",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports plain-language account-setup steps and the editor confirmation that the steps remain accurate."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no comprehension-study, rollout-experiment, or newsletter notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S07",
+      "case_id": "V09",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The warmer invitation draft is ready. It opens with a friendly greeting and puts Tuesday at 14:00 and Room Cedar in a separate sentence for easy reference.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S07",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports a warmer draft with a friendly opening and a separate sentence highlighting Tuesday at 14:00 and Room Cedar."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no social-post, slide-deck, or headshot notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S08",
+      "case_id": "V15",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Tomorrow’s 15:00–15:30 slot works for the call with Maya. Booking is blocked by unavailable calendar access: no event was created and no invitation was sent.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S08",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies tomorrow at 15:00-15:30 as a suitable slot for the call with Maya."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States calendar access is unavailable and no booking/event or invitation was completed."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly discloses the unbooked call and unsent invitation; makes no confirmation claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S09",
+      "case_id": "V07",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Safe retry instructions are missing: the runbook does not explain whether retrying duplicates records or how to retry safely. Failure detection is documented through the relevant dashboard alert, and recovery confirmation uses the processed-record count.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S09",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Explicitly identifies safe-retry instructions as missing."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Distinguishes documented dashboard-alert detection and processed-record-count recovery confirmation from absent retry guidance."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Says the runbook does not explain duplication or safe retry; does not assert the actual retry behavior."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S10",
+      "case_id": "V16",
+      "variant": "beta",
+      "run": 3,
+      "response": "No 60-minute slot next week works for all five panelists. The closest option is Thursday 13:00–14:00, which works for four; Nia is unavailable. It is the only supplied window accommodating four panelists.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S10",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that no 60-minute slot next week works for all five panelists."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Gives Thursday 13:00-14:00 as the closest option for four and identifies Nia as unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Distinguishes the four-person fallback from the all-five requirement in the supplied scheduling context."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S11",
+      "case_id": "V03",
+      "variant": "beta",
+      "run": 3,
+      "response": "The CSV export handler and download button are implemented, and unit tests pass. Browser download verification remains incomplete: the browser test could not start because the required browser executable is missing.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S11",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports the implemented export handler and download button, with passing unit tests."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Explicitly says browser download verification remains incomplete because the required browser executable is absent or missing."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Describes browser verification as incomplete and makes no verified-download or full-completion claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S12",
+      "case_id": "V12",
+      "variant": "beta",
+      "run": 3,
+      "response": "The promise of weekend phone support is unsupported: the supplied product notes contain no support-hours information. Offline access and automatic backup are supported; no other unsupported claims were found.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S12",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies weekend phone support as unsupported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Explains that the supplied product notes contain no support-hours information, without claiming support is unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Specifies the unsupported weekend-support claim; also says no other unsupported claims were found."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S13",
+      "case_id": "V19",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The experiment did not establish that the new welcome email increases seven-day activation. Activation was 40.2% with the new email versus 40.0% in control: a 0.2-percentage-point difference, with a 95% confidence interval from −1.3 to +1.7 percentage points.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S13",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Explicitly says the experiment did not establish increased seven-day activation."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Reports the 0.2-percentage-point difference and 95% interval from -1.3 to +1.7 percentage points."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Does not equate an unestablished increase with proof of zero effect."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S14",
+      "case_id": "V06",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The approved definition of “workspace” was added to the glossary and linked from its first occurrence in the introduction. Both links resolve.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S14",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports addition of the approved workspace definition and working introductory link without inventing definition text."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no revision-history, translation, or cover-illustration notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S15",
+      "case_id": "V16",
+      "variant": "alpha",
+      "run": 3,
+      "response": "There is no 60-minute slot next week when all five panelists are available. The closest option is Thursday 13:00–14:00, the only window accommodating four panelists; Nia is unavailable.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S15",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that no 60-minute slot next week works for all five panelists."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Gives Thursday 13:00-14:00 as the closest option for four and identifies Nia as unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Distinguishes the four-person fallback from the all-five requirement in the supplied scheduling context."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S16",
+      "case_id": "V19",
+      "variant": "beta",
+      "run": 3,
+      "response": "The experiment did not establish that the new welcome email increases seven-day activation. Activation was 40.2% versus 40.0% in control: a 0.2 percentage-point difference, with a 95% confidence interval from −1.3 to +1.7 percentage points.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S16",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Explicitly says the experiment did not establish increased seven-day activation."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Reports the 0.2-percentage-point difference and 95% interval from -1.3 to +1.7 percentage points."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Does not equate an unestablished increase with proof of zero effect."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S17",
+      "case_id": "V21",
+      "variant": "beta",
+      "run": 3,
+      "response": "The nightly backup completed successfully at 02:14 and produced the expected backup artifact.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S17",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports the nightly backup completed successfully and produced the expected artifact."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no restart, firewall-change, or wallpaper notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S18",
+      "case_id": "V01",
+      "variant": "beta",
+      "run": 3,
+      "response": "Invoice filtering now handles customer names containing apostrophes using the existing parameter-binding helper. The apostrophe regression test and invoice-list test suite pass.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S18",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports apostrophe-safe invoice filtering and passing apostrophe regression and invoice-list tests."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no dependency, logo, or footer notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S19",
+      "case_id": "V05",
+      "variant": "beta",
+      "run": 3,
+      "response": "The onboarding guide’s installation command now uses `npm ci`. The documentation check passes.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S19",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that the installation command now uses npm ci."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no screenshots, troubleshooting-appendix, or release-announcement notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S20",
+      "case_id": "V12",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The promise of phone support on weekends is unsupported: the supplied product notes contain no support-hours information. Offline access and automatic backup are supported; no other unsupported claims were found.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S20",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies weekend phone support as unsupported."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Explains that the supplied product notes contain no support-hours information, without claiming support is unavailable."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Specifies the unsupported weekend-support claim; also says no other unsupported claims were found."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S21",
+      "case_id": "V23",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Staging was rolled back to the prior release, and the checkout smoke check passes. The rollback cleared all three unsaved staging checkout sessions; those testers must restart their sessions. Production was outside this operation.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S21",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports staging rolled back to the prior release and a passing checkout smoke check."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Discloses that all three unsaved staging checkout sessions were cleared and those testers must restart."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly identifies the rollback and affected sessions as staging."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S22",
+      "case_id": "V17",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Of 80 respondents, 35 selected sandwiches, 28 selected salads, and 17 selected soup.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S22",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Gives 35 sandwiches, 28 salads, and 17 soup selections among 80 respondents."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no forecast, demographic-profile, or survey-theme notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S23",
+      "case_id": "V09",
+      "variant": "beta",
+      "run": 3,
+      "response": "The warmer invitation draft is ready, with a friendly opening and a separate sentence highlighting Tuesday at 14:00 in Room Cedar.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S23",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports a warmer draft with a friendly opening and a separate sentence highlighting Tuesday at 14:00 and Room Cedar."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no social-post, slide-deck, or headshot notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S24",
+      "case_id": "V10",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The FAQ account-setup answer now explains the same three steps in plain language. The editor confirmed that the steps remain accurate.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S24",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports plain-language account-setup steps and the editor confirmation that the steps remain accurate."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no comprehension-study, rollout-experiment, or newsletter notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S25",
+      "case_id": "V02",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The orders search empty-state message now reads “No matching orders.” The component render check confirms the text; the full integration suite was not run.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S25",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that the empty-state message now says No matching orders."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded note: the full integration suite was not run."
+          }
+        ],
+        "irrelevant_details": [
+          "the full integration suite was not run"
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Correct message reported, but includes the explicitly excluded full-integration-suite note."
+      }
+    },
+    {
+      "id": "R3S26",
+      "case_id": "V07",
+      "variant": "beta",
+      "run": 3,
+      "response": "Safe-retry instructions are missing: the runbook does not explain whether retrying duplicates records or how to retry safely. Failure detection via the dashboard alert and recovery confirmation via the processed-record count are documented.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S26",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Explicitly identifies safe-retry instructions as missing."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Distinguishes documented dashboard-alert detection and processed-record-count recovery confirmation from absent retry guidance."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Says the runbook does not explain duplication or safe retry; does not assert the actual retry behavior."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S27",
+      "case_id": "V22",
+      "variant": "beta",
+      "run": 3,
+      "response": "The practice failover checklist is ready and covers every supplied procedure step: announce the exercise, check replication, switch the practice endpoint, validate it, and restore it.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S27",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Says every supplied procedure step is covered and lists announcement, replication check, endpoint switch, validation, and restoration."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no live-failover, dashboard, or office-network-name notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S28",
+      "case_id": "V13",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Recommend Wednesday 10:00–10:45. All six participants are available then; every other supplied window excludes at least one participant.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S28",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Recommends Wednesday 10:00-10:45 and says all six participants are available."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no event-creation, catering, or weekly-meeting notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S29",
+      "case_id": "V05",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The onboarding guide’s installation command now uses `npm ci`. The documentation check passes.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S29",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that the installation command now uses npm ci."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no screenshots, troubleshooting-appendix, or release-announcement notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S30",
+      "case_id": "V04",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Plus-sign email login is fixed, and its regression test passes. Expired-password login still returns a generic server error, and its test fails. Work stopped after identifying that the identity-service response lacks the expected error code.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S30",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Separates fixed plus-sign email login from expired-password login still returning a generic server error."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Reports the failing expired-password test and missing expected identity-service error code."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly leaves the expired-password failure unresolved."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S31",
+      "case_id": "V20",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The mean resolution time is 6.4 hours for the 90 April-closed tickets with opening timestamps. The other 30 of 120 tickets lack opening timestamps, so the average across every ticket could not be calculated.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S31",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Labels 6.4 hours as the mean for the 90 tickets with opening timestamps."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Discloses 30 of 120 tickets lack opening timestamps and says the all-ticket average could not be calculated."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Limits 6.4 hours to the 90 calculable tickets rather than every April closure."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S32",
+      "case_id": "V22",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The practice failover checklist is ready and includes every supplied procedure step: announce the exercise, check replication, switch the practice endpoint, validate it, and restore it. No live failover was performed.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S32",
+        "pass": false,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Says every supplied procedure step is covered and lists announcement, replication check, endpoint switch, validation, and restoration."
+          },
+          {
+            "index": 2,
+            "pass": false,
+            "evidence": "Includes the explicitly excluded note: No live failover was performed."
+          }
+        ],
+        "irrelevant_details": [
+          "No live failover was performed."
+        ],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "Checklist completeness reported, but includes the explicitly excluded live-failover note."
+      }
+    },
+    {
+      "id": "R3S33",
+      "case_id": "V23",
+      "variant": "beta",
+      "run": 3,
+      "response": "Staging was rolled back to the prior release, and the checkout smoke check passes. The rollback cleared all three unsaved staging checkout sessions; those testers must restart their sessions.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S33",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports staging rolled back to the prior release and a passing checkout smoke check."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Discloses that all three unsaved staging checkout sessions were cleared and those testers must restart."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly identifies the rollback and affected sessions as staging."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S34",
+      "case_id": "V21",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Yes. The nightly backup job completed successfully at 02:14 and produced the expected backup artifact.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S34",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports the nightly backup completed successfully and produced the expected artifact."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no restart, firewall-change, or wallpaper notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S35",
+      "case_id": "V24",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The archive upload completed, but checksum verification is blocked: reading the uploaded object returned an authorization error. The local checksum is available, but no remote checksum was obtained, so matching contents are not confirmed.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S35",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports that the archive upload completed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States checksum verification is blocked by an authorization error while reading the uploaded object; no remote checksum was obtained."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Leaves matching contents unconfirmed and makes no corruption or confirmed-integrity claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S36",
+      "case_id": "V15",
+      "variant": "beta",
+      "run": 3,
+      "response": "Tomorrow’s 15:00–15:30 slot works for the call with Maya. Calendar access is unavailable, so the call has not been booked and the invitation has not been sent.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S36",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies tomorrow at 15:00-15:30 as a suitable slot for the call with Maya."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States calendar access is unavailable and no booking/event or invitation was completed."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly discloses the unbooked call and unsent invitation; makes no confirmation claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S37",
+      "case_id": "V18",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Harbor had the highest March sales, with 42,000 units.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S37",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Identifies Harbor as highest for March with 42,000 units."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no annual-ranking, chart-color, or staffing-recommendation notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S38",
+      "case_id": "V20",
+      "variant": "beta",
+      "run": 3,
+      "response": "The mean resolution time is 6.4 hours for the 90 April-closed tickets with opening timestamps. The other 30 of 120 tickets lack opening timestamps, so the average across all April-closed tickets could not be calculated.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S38",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Labels 6.4 hours as the mean for the 90 tickets with opening timestamps."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Discloses 30 of 120 tickets lack opening timestamps and says the all-ticket average could not be calculated."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Limits 6.4 hours to the 90 calculable tickets rather than every April closure."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S39",
+      "case_id": "V08",
+      "variant": "beta",
+      "run": 3,
+      "response": "Authentication and pagination are updated for version 3, and their sample requests succeeded against the test endpoint. The rate-limit section remains on version 2 pending the version 3 limits; its examples have not been validated.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S39",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports authentication and pagination updated for version 3 and their sample requests succeeding against the test endpoint."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States that rate limits remain on version 2 pending the missing version 3 limits."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Limits successful validation to authentication and pagination and explicitly leaves rate-limit examples unvalidated."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S40",
+      "case_id": "V24",
+      "variant": "beta",
+      "run": 3,
+      "response": "The archive upload completed, but checksum verification is blocked by an authorization error when reading the uploaded object. The local checksum is available; no remote checksum was obtained, so matching contents remain unconfirmed.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "operations",
+      "grade": {
+        "id": "R3S40",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports that the archive upload completed."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States checksum verification is blocked by an authorization error while reading the uploaded object; no remote checksum was obtained."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Leaves matching contents unconfirmed and makes no corruption or confirmed-integrity claim."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S41",
+      "case_id": "V11",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The revision includes all four named customer benefits, but it is 176 words and does not meet the under-150-word requirement. A shorter version is still needed.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S41",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that all four customer benefits are included."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Discloses 176 words and explicitly says the under-150-word requirement is unmet."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Says a shorter version is still needed rather than calling the draft compliant or ready."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S42",
+      "case_id": "V08",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The API guide’s authentication and pagination sections now cover version 3, and their sample requests succeeded against the test endpoint. Delivery remains incomplete: the rate-limit section still covers version 2 because version 3 limits have not been supplied, and its examples remain unvalidated.",
+      "version": "1.3.1",
+      "category": "preserve_material",
+      "domain": "documentation",
+      "grade": {
+        "id": "R3S42",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports authentication and pagination updated for version 3 and their sample requests succeeding against the test endpoint."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "States that rate limits remain on version 2 pending the missing version 3 limits."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Limits successful validation to authentication and pagination and explicitly leaves rate-limit examples unvalidated."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S43",
+      "case_id": "V17",
+      "variant": "beta",
+      "run": 3,
+      "response": "Of 80 respondents, 35 selected sandwiches, 28 selected salads, and 17 selected soup.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "data_analysis",
+      "grade": {
+        "id": "R3S43",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Gives 35 sandwiches, 28 salads, and 17 soup selections among 80 respondents."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no forecast, demographic-profile, or survey-theme notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S44",
+      "case_id": "V13",
+      "variant": "beta",
+      "run": 3,
+      "response": "Recommend Wednesday 10:00–10:45: all six participants are available, and every other supplied window excludes at least one participant.",
+      "version": "candidate",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S44",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Recommends Wednesday 10:00-10:45 and says all six participants are available."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no event-creation, catering, or weekly-meeting notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S45",
+      "case_id": "V01",
+      "variant": "alpha",
+      "run": 3,
+      "response": "Invoice filtering now uses the existing parameter-binding helper, fixing the crash for customer names containing apostrophes. The apostrophe regression test and invoice-list test suite pass.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S45",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports apostrophe-safe invoice filtering and passing apostrophe regression and invoice-list tests."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no dependency, logo, or footer notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S46",
+      "case_id": "V14",
+      "variant": "alpha",
+      "run": 3,
+      "response": "The one-hour design review agenda is ready: 5 minutes for goals, 20 for the proposal, 25 for discussion, and 10 for questions. Total: 60 minutes.",
+      "version": "1.3.1",
+      "category": "omit_irrelevant",
+      "domain": "scheduling",
+      "grade": {
+        "id": "R3S46",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Reports a ready agenda totaling 60 minutes with 10 minutes for questions."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Contains no room-reservation, call-background, or calendar-entry notes."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S47",
+      "case_id": "V11",
+      "variant": "beta",
+      "run": 3,
+      "response": "The revision includes all four customer benefits but is 176 words, so it does not meet the under-150-word requirement. A shorter version is still needed.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "writing",
+      "grade": {
+        "id": "R3S47",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "States that all four customer benefits are included."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Discloses 176 words and explicitly says the under-150-word requirement is unmet."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Says a shorter version is still needed rather than calling the draft compliant or ready."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    },
+    {
+      "id": "R3S48",
+      "case_id": "V04",
+      "variant": "beta",
+      "run": 3,
+      "response": "Plus-sign email login is fixed, and its regression test passes. Expired-password login still returns a generic server error, and its test fails. Work stopped after identifying that the identity-service response lacks the expected error code.",
+      "version": "candidate",
+      "category": "preserve_material",
+      "domain": "coding",
+      "grade": {
+        "id": "R3S48",
+        "pass": true,
+        "criteria": [
+          {
+            "index": 1,
+            "pass": true,
+            "evidence": "Separates fixed plus-sign email login from expired-password login still returning a generic server error."
+          },
+          {
+            "index": 2,
+            "pass": true,
+            "evidence": "Reports the failing expired-password test and missing expected identity-service error code."
+          },
+          {
+            "index": 3,
+            "pass": true,
+            "evidence": "Explicitly leaves the expired-password failure unresolved."
+          }
+        ],
+        "irrelevant_details": [],
+        "missing_material": [],
+        "unsupported_claims": [],
+        "format_error": null,
+        "reason": "All corresponding criteria satisfied."
+      }
+    }
+  ]
+}

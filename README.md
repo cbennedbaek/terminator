@@ -163,6 +163,12 @@ formats, relevant non-actions, and material side effects. These smoke tests chec
 specific communication behaviors; a separate
 reviewer grades responses against criteria hidden from the response generator.
 
+The separate [response-relevance comparison](evals/comparisons/response-relevance/README.md)
+records 144 replies across six domains: 66/72 passes for v1.3.1 and 69/72 for the
+wording adopted in v1.3.2. Both variants preserved material information in all
+36 applicable replies. The gain was concentrated in two cases; exact inputs,
+responses, grades, and batch-context limits are included.
+
 The [evaluation guide](evals/README.md) provides commands to generate and grade
 your own responses, plus the published cases, results, and methodology. To check
 the saved results without making model calls:

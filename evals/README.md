@@ -9,8 +9,8 @@ The final four cases check irrelevant non-actions, blocked deployment, requested
 negative findings, and disclosure of accidental data loss.
 
 - `cases.json` contains prompts, acceptance criteria, and scoring guidance.
-  The suite name `term-inator-1.3.0` identifies the shared cases; both 1.3.0 and
-  1.3.1 use the same suite for comparison.
+  The suite name `term-inator-1.3.0` identifies the shared cases; versions 1.3.0,
+  1.3.1, and 1.3.2 use the same suite for comparison.
 - `results.json` contains actual responses and independent model-assisted judgments.
   Hashes identify the tested skill and cases, with CRLF normalized to LF.
 - `eval.py` generates responses, collects separate reviewer judgments, and checks
@@ -88,15 +88,9 @@ commands, and incomplete reviews. Neither generates new model evidence.
 
 All 37 cases passed the recorded review.
 
-In the same comparison, versions 1.2.0 and 1.3.0 each passed 36 of 37 cases.
-Both included irrelevant non-actions in T34; version 1.3.1 omitted them.
-This single batch shows a difference on that case, not a general effectiveness
-estimate. The v1.3.0 tag retains its failing response for comparison.
-
-All responses were freshly generated for this skill version against the same
-37-case suite used to compare versions 1.2.0, 1.3.0, and 1.3.1. Each version used
-a separate response-generation agent. A separate reviewer graded the responses
-against the acceptance criteria.
+All responses were freshly generated for v1.3.2 using the unchanged 37-case
+suite. A separate reviewer graded them against the acceptance criteria. The
+earlier v1.3.0 and v1.3.1 release tags preserve their own responses and judgments.
 
 The response generator received the skill and prompts without grading criteria
 or earlier results. A separate reviewer received prompts, criteria, and responses,
@@ -110,3 +104,17 @@ instructions and available skill metadata may have influenced responses.
 These behavioral smoke tests check adherence in the supplied cases. They do not
 measure productivity or token savings, or establish behavior across models,
 languages, or long conversations. Automatic activation is not tested.
+
+## Varied response-relevance comparison
+
+The [comparison archive](comparisons/response-relevance/README.md) contains a
+separate 24-case study across six domains and three batch runs per variant.
+v1.3.1 passed 66/72 replies; the candidate adopted in v1.3.2 passed 69/72.
+Both passed all 36 material-information replies. Gains were concentrated in
+two cases; three irrelevant-detail failures remained for the candidate.
+
+This study used six generator batch contexts, not 144 independent trials.
+Its exact inputs, criteria, responses, and per-criterion grades are preserved.
+The candidate file retains the metadata used during that experiment; the archive
+explains its relationship to the later v1.3.2 release. The main regression
+checker above validates the separate 37-case release record, not this archive.
